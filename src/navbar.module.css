@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    background: black;
+    flex-wrap: wrap;
+}
+
+li{
+    flex-grow: 1;
+    text-align: center;
+    color: #fff;
+}
+
+nav a{
+    text-decoration: none;
+    padding: 10px;
+    color: #fff;
+    display: block;
+}
+
+nav input{
+    margin: 10px;
+}
+
+nav a:hover{
+    background-color: #555;
+}
