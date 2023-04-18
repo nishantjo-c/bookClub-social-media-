@@ -14,7 +14,7 @@ function Updates(){
 
 	useEffect(() => {
 		const data = async () => {
-		const response = await fetch('https://openlibrary.org/search.json?title=if+tomorrow+comes')
+		const response = await fetch('https://openlibrary.org/search.json?title=1Q84')
 		const data = await response.json();
 		setData(data);
 		return data;

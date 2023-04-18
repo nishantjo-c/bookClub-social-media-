@@ -3,4 +3,14 @@
 	width: 450px;
 	height: 200px;
 	margin: 20px;
+	display: flex;
+}
+
+img{
+	height: 90%;
+	padding: 10px;
+}
+
+.information{
+	padding: 15px;
 }
