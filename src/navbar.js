@@ -1,6 +1,8 @@
 import navbarCSS from './navbar.module.css';
 
-function Navbar(){
+
+function Navbar( {search, setSearch} ){
+
     return (
     <div>
         <nav>
@@ -8,9 +10,13 @@ function Navbar(){
                 <li><a href='#'>home</a></li>
                 <li><a href='#'>books</a></li>
                 <li><a href='#'>groups</a></li>
-                {/* <li><a href='#'>discussion</a></li> */}
                 <li>
-                    <input type="text" id="search-box" name="q" placeholder='search'/>
+                    <input 
+                        type="text" 
+                        placeholder='search'
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        />
                 </li>
                 <li><a href='#'>profile</a></li>
             </ul>
