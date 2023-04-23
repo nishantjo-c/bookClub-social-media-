@@ -1,4 +1,4 @@
-import navbarCSS from './navbar.module.css';
+import navbarCSS from './styles/navbar.module.css';
 
 
 function Navbar( {search, setSearch} ){

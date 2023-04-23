@@ -1,4 +1,4 @@
-import personalUpdateCSS from './personalUpdate.module.css';
+import personalUpdateCSS from './styles/personalUpdate.module.css';
 import { useState } from "react";
 
 function PersonalUpdate(){
