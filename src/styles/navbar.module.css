@@ -26,8 +26,38 @@ nav a{
 
 nav input{
     margin: 10px;
+    margin-bottom: 2px;
+    width: 300px;
+    height: 25px;
 }
 
 nav a:hover{
     background-color: #555;
+}
+
+.searchSuggestion{
+    display: flex;
+    width: 300px;
+    margin-left: 10px;
+}
+
+.searchSuggestion:hover{
+    background-color: #555;
+
+}
+
+.titleNav{
+    color: white;
+    font-size: 15px;
+    overflow: hidden;
+}
+
+.authNav{
+    color: white;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.imageNav{
+    height: 30px;
 }

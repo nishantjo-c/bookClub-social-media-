@@ -15,3 +15,7 @@ code {
 .components {
   display: flex;
 }
+
+.pop-up{
+  display: flex;
+}

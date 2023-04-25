@@ -4,17 +4,10 @@ import updatesCSS from './styles/updates.module.css';
 import UpdateCard from './updateCard.js'
 import useDebounce from './hooks/useDebounce.js'
 
-function Updates({ search }){
-
-//	defined states
-
-	const [data, setData] = useState(''); 
-	const [bookTitle, setBookTitle] = useState('no title!');
-	const [coverVal, setCoverVal] = useState(null);
-	const [authorName, setAuthorName] = useState('no author name!');
-
+function Updates(
+	{ search, data, setData, bookTitle, setBookTitle, coverVal, setCoverVal, authorName, setAuthorName }){
+	
 	const newSearch = useDebounce(search.replace(/\s+/g, "+"));
-	// console.log(newSearch);
 
 	useEffect(() => {
 		const data = async () => {
@@ -25,7 +18,7 @@ function Updates({ search }){
 		}
 		data().then(data => {
 			data = data.docs;
-			console.log(data)
+			// console.log(data)
 			setBookTitle(data[0].title);
 			setAuthorName(data[0].author_name[0]);
 			setCoverVal(`https://covers.openlibrary.org/b/isbn/${data[0].isbn[0]}-M.jpg`);
