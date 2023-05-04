@@ -5,9 +5,9 @@ function Navsearch({search, setSearch, coverVal, bookTitle, authorName, onClick}
 	<>
 	<div className='navSearch'>
         <input 
-            className='searchBar'
+            className={navbarCSS.searchBar}
             type="text" 
-            placeholder='search'
+            placeholder=' search...'
             value={search}
             onChange={(e) => setSearch(e.target.value)}
         />

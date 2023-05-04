@@ -7,20 +7,20 @@
 ul{
     list-style-type: none;
     display: flex;
-    background: black;
+    background: #C9DBB2;
     flex-wrap: wrap;
 }
 
 li{
     flex-grow: 1;
     text-align: center;
-    color: #fff;
+    color: #AAC8A7;
 }
 
 nav a{
     text-decoration: none;
     padding: 10px;
-    color: #fff;
+    color: black;
     display: block;
 }
 
@@ -32,7 +32,7 @@ nav input{
 }
 
 nav a:hover{
-    background-color: #555;
+    background-color: #AAC8A7;
 }
 
 .searchSuggestion{
@@ -40,16 +40,16 @@ nav a:hover{
     width: 300px;
     margin-left: 10px;
     position: absolute;
-    background-color: black;
+    background-color: #AAC8A7;
 }
 
 .searchSuggestion:hover{
-    background-color: #555;
+    background-color: #AAC8A7;
 
 }
 
 .titleNav{
-    color: white;
+    color: black;
     font-size: 15px;
     overflow: hidden;
 }
@@ -62,4 +62,16 @@ nav a:hover{
 
 .imageNav{
     height: 30px;
+}
+
+h1{
+    color: black;
+    padding: 5px;
+    margin-left: 10px;
+
+}
+
+.searchBar{
+        border-radius: 8px;
+        margin: 8px;
 }

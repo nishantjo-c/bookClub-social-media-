@@ -1,6 +1,6 @@
 import Navsearch from './navsearch.js';
 import {useState} from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 function Navbar( {search, setSearch, coverVal, bookTitle, authorName, onClick} ){
 
@@ -9,9 +9,9 @@ function Navbar( {search, setSearch, coverVal, bookTitle, authorName, onClick} )
     <div>
         <nav>
             <ul>
-                <li><a href='#'>home</a></li>
+                <h1>BookClub</h1>
                 <li><a href='#'>books</a></li>
-                <li><a href='#'>groups</a></li>
+                <li><a href='#'>discussion</a></li>
                 <Navsearch 
                     search={search}
                     setSearch={setSearch}
