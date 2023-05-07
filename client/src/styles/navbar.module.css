@@ -4,23 +4,18 @@
     border: 0;
 }
 
-ul{
-    list-style-type: none;
+.NavLinks{
     display: flex;
-    background: #C9DBB2;
-    flex-wrap: wrap;
-}
-
-li{
-    flex-grow: 1;
     text-align: center;
     color: #AAC8A7;
 }
 
-nav a{
+.navlink{
     text-decoration: none;
+    background: #C9DBB2;
     padding: 10px;
     color: black;
+    flex-grow: 1;
     display: block;
 }
 
@@ -31,7 +26,7 @@ nav input{
     height: 25px;
 }
 
-nav a:hover{
+.navlink:hover{
     background-color: #AAC8A7;
 }
 
@@ -40,7 +35,7 @@ nav a:hover{
     width: 300px;
     margin-left: 10px;
     position: absolute;
-    background-color: #AAC8A7;
+    
 }
 
 .searchSuggestion:hover{
@@ -68,10 +63,14 @@ h1{
     color: black;
     padding: 5px;
     margin-left: 10px;
-
+    background: #C9DBB2;
 }
 
 .searchBar{
         border-radius: 8px;
         margin: 8px;
+}
+
+.navSearch{
+    background: #C9DBB2;
 }

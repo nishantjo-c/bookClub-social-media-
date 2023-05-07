@@ -3,7 +3,7 @@ import navbarCSS from '../styles/navbar.module.css';
 function Navsearch({search, setSearch, coverVal, bookTitle, authorName, onClick}){
 	return(
 	<>
-	<div className='navSearch'>
+	<div className={navbarCSS.navSearch}>
         <input 
             className={navbarCSS.searchBar}
             type="text" 

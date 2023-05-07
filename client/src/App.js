@@ -11,9 +11,10 @@ function App() {
     <Route exact path='/'>
       <Redirect to='/home' />
     </Route>
-    <Route exact path='/home' component={Wrapper} />
+    <Route path='/home' exact component={Wrapper} />
     <Route path='/register' exact component={Register} />
     <Route path='/login' exact component={Login} />
+
   </Router>
   );
 }
