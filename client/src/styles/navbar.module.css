@@ -59,10 +59,12 @@ nav input{
     height: 30px;
 }
 
-h1{
+.h1{
+    text-decoration: none;
     color: black;
     padding: 5px;
-    margin-left: 10px;
+/*    padding-left: 20px;*/
+    padding-right: 50px;
     background: #C9DBB2;
 }
 

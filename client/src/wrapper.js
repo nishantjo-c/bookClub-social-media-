@@ -4,6 +4,12 @@ import Updates from "./components/updates.js";
 import {useState} from 'react';
 import PopBookUp from './components/popBookUp.js';
 
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import Books from './components/pages/books.js';
+import Discussion from './components/pages/discussion.js';
+import Profile from './components/pages/profile.js';
+
 function Wrapper(){
 
 /* Lifted States */
@@ -24,7 +30,8 @@ function Wrapper(){
   }
 
 	return (
-	<>
+	  <BrowserRouter>
+
 		<Navbar 
 	        search={search} 
 	        setSearch={setSearch}
@@ -32,6 +39,11 @@ function Wrapper(){
 	        bookTitle={bookTitle}
 	        authorName={authorName}
 	        onClick={handleOpenPopup}
+
+	        setData={setData}
+					setBookTitle={setBookTitle}
+					setCoverVal = {setCoverVal}
+					setAuthorName = {setAuthorName}
 	      />
 
 	      <div className='pop-up'>
@@ -44,22 +56,21 @@ function Wrapper(){
 	       </PopBookUp>
 	      </div>
 
-	      <div className='components'>
-	        <PersonalUpdate />
+	      {/*<div className='components'>
+	      	        <PersonalUpdate />
+	      
+	      	        <Updates 
+	      	          bookTitle={bookTitle}
+	      	          coverVal = {coverVal}
+	      	          authorName = {authorName}
+	      	        />
+	      	      </div>*/}
 
-	        <Updates 
-	          search={search}
-	          data={data}
-	          setData={setData}
-	          bookTitle={bookTitle}
-	          setBookTitle={setBookTitle}
-	          coverVal = {coverVal}
-	          setCoverVal = {setCoverVal}
-	          authorName = {authorName}
-	          setAuthorName = {setAuthorName}
-	        />
-	      </div>
-	</>
+	  		<Route exact path='/books' component={Books} />
+        <Route exact path='/profile' component={Profile} />
+        <Route exact path='/discussion' component={Discussion} />
+	  </BrowserRouter>
+
 	);
 }
 
