@@ -11,3 +11,12 @@
 	flex-direction: column;
 }
 
+.footerForm{
+	display: flex;
+	padding: 10px;
+}
+
+.link{
+	text-decoration: none;
+	margin-left: 5px;
+}

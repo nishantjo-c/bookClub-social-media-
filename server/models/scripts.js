@@ -18,10 +18,26 @@ export const userDelete = async function (){
 }
 // userDelete();
 
-export const userFind = async function (){
+export const userFind = async function (userEmail){
 	const usr = await user.find({
-		name:''
+		email:userEmail
 	})
+	// console.log(usr);
+	// console.log(userEmail);
+	if(usr[0]){
+
+		return [true, usr];
+	}
+	else{
+
+		return [false];
+	}
+}
+// userFind('nj0402001@gmail.com');
+
+export const userFindAll = async function (){
+	const usr = await user.find();
 	console.log(usr)
 }
-// userFind();
+
+// userFindAll()

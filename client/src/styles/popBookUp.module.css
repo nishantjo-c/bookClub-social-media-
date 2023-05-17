@@ -21,7 +21,7 @@
 	background-color: yellow;
 }
 
-button{
+.button{
 	padding: 15px;
 	position: absolute;
 	top: 0;
@@ -29,7 +29,7 @@ button{
 	background-color: mintcream;
 }
 
-button:hover{
+.button:hover{
 	background-color: #C9DBB2;
 }
 

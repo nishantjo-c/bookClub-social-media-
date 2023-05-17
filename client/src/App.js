@@ -13,11 +13,11 @@ function App() {
   <Router>
  
     <Route exact path='/'>
-      <Redirect to='/home' />
+      <Redirect to='/login' />
     </Route>
+    <Route path='/login' exact component={Login} />
     <Route path='/home' exact component={Wrapper} />
     <Route path='/register' exact component={Register} />
-    <Route path='/login' exact component={Login} />
 
   </Router>
   );

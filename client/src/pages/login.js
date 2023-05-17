@@ -1,14 +1,17 @@
 import loginCSS from './styles/login.module.css';
+import { Link,useHistory } from 'react-router-dom'
 import {useState} from 'react';
 
 function Login(){
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	
+	const history = useHistory();
 
 	async function login(event){
 		event.preventDefault();
-		const response = await fetch('http://localhost:8000/login', {
+		const response = await fetch('http://localhost:5000/login', {
 			method:'POST',
 			headers:{
 				'Content-Type':'application/json'
@@ -20,8 +23,12 @@ function Login(){
 		});
 		const data = await response.json();
 		console.log(data);
+		if(data){
+			history.push('/home');
+		}
+		// return data;
 	}
-
+	
 	return (
 		<div className={loginCSS.container}>
 		<h2>Login</h2>
@@ -41,8 +48,12 @@ function Login(){
 				/>
 				<input
 					type='submit'
-					value='register'/>
+					value='login'/>
 			</form>
+			<div className={loginCSS.footerForm}>
+				<p>not a user?</p>
+				<Link className={loginCSS.link} to='/register'>register</Link>
+			</div>
 		</div>
 	);
 }

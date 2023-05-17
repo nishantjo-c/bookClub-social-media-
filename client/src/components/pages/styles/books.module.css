@@ -1,0 +1,12 @@
+
+.booksDiv{
+	border: 2px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.innerbooksDiv{
+
+	
+}

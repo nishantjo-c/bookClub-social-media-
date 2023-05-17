@@ -20,7 +20,7 @@ return (
 		</div>
 
 		<div className={popBookUpCSS.popUp}>
-			<button onClick={onClick}>x</button>
+			<button className={popBookUpCSS.button} onClick={onClick}>x</button>
 		</div>
 	</div>
 	);

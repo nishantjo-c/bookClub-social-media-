@@ -1,6 +1,6 @@
 import Navsearch from './navsearch.js';
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect,useState } from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import useDebounce from '../hooks/useDebounce.js'
 
 import navbarCSS from '../styles/navbar.module.css';
@@ -11,6 +11,11 @@ function Navbar( {search, setSearch, coverVal, bookTitle, authorName, onClick,
     setCoverVal,
     setAuthorName
 } ){
+
+    const [isHovered, setIsHovered] = useState(false);
+
+    const history = useHistory();
+    const location = useLocation();
 
     const newSearch = useDebounce(search.replace(/\s+/g, "+"));
 
@@ -30,11 +35,36 @@ function Navbar( {search, setSearch, coverVal, bookTitle, authorName, onClick,
         });
     },[newSearch])
 
+    useEffect(() =>{
+        if(location.pathname === '/'){
+
+            console.log('path changed')
+            window.location.reload()
+        }
+    }, [location])
+
+    /*const handleClick = (e) => {
+  
+        if(e.target.textContent === 'signout'){
+            console.log(e.target.textContent)
+            // history.push('/')
+        }
+       }*/
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+
+    }
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+     }
 
     return (
+
         <nav>
             <div className={navbarCSS.NavLinks}>
-                {/*<h1 className={navbarCSS.h1}>BookClub</h1>*/}
+
                 <Link className={navbarCSS.h1} to='/home'><h1>BookClub</h1></Link>
 
                 <Link className={navbarCSS.navlink} to='/books'>books</Link>
@@ -47,10 +77,28 @@ function Navbar( {search, setSearch, coverVal, bookTitle, authorName, onClick,
                     authorName={authorName}
                     onClick={onClick}
                 />
-                <Link className={navbarCSS.navlink} to='/profile'>profile</Link>
+                <div className={navbarCSS.navlink} to='/profile' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+
+                    personal
+                   {<div className={`${navbarCSS['dropdownContent']} ${isHovered ? navbarCSS.visible : ''}`} >
+                        <div className={navbarCSS.h4}>
+                            <Link to='/profile' className={navbarCSS.navlink}>
+                                <h3>profile</h3>
+                            </Link>
+                        </div>
+                        <div className={navbarCSS.h4}>
+                            <Link to='/' className={navbarCSS.navlink}>
+                                <h3>signout</h3>
+                            </Link>
+                        </div>
+                    </div>}
+                </div>
             </div>
         </nav>
+
     );
 }
 
 export default Navbar;
+
+

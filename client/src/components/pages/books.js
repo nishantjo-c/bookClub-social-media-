@@ -1,4 +1,4 @@
-import pageCSS from './styles/pages.module.css'
+import pageCSS from './styles/books.module.css'
 import { useState,useEffect } from 'react'
 
 
@@ -6,45 +6,57 @@ function Books(){
 
 	const [title, setTitle] = useState('');
 	const [author, setAuthor] = useState('');
-	const [authKey, setAuthKey] = useState(null);
-	const [url, setUrl] = useState('');
+	const [firstSentence, setFirstSentence] = useState(null);
+	const [characterList, setCharacterList] = useState(null);
 
 	useEffect(()=> {
 		const data = async () => {
-			const response = await fetch('https://openlibrary.org/search.json?title=harry+potter');
+			const response = await fetch('https://openlibrary.org/search.json?title=fifty+shades+of+grey');
 			const data = await response.json();
 			return data;
 		}
 		data().then(responseData => {
 			console.log(responseData.docs[0]);
+			try{
+				setTitle(responseData.docs[0].title);
+			}
+			catch(error){
+				console.log(error);
+			}
 
-			setAuthKey(responseData.docs[0].author_key[0]);
-			setUrl(`https://openlibrary.org/authors/${authKey}/works.json`);
+			try{
+				setAuthor(responseData.docs[0].author_name[0]);
+			}
+			catch(error){
+				console.log(error)	
+			}
 
-			setTitle(responseData.docs[0].title);
-			setAuthor(responseData.docs[0].author_name[0]);
+			try{
+				setFirstSentence(responseData.docs[0].first_sentence[0])
+			}
+			catch(error){
+				console.log(error)
+			}
+
+			try{
+				setCharacterList(responseData.docs[0].person)
+			}
+			catch(error){
+				console.log(error)	
+			}
 		})
-
 	}, [])
 
-setTimeout(() => {
-		const data = async () => {
-			const response = await fetch(url);
-			const data = await response.json()
-			return data;
-		}
-		data().then( data => console.log(data) );
-	}, 5000)
 
 	return (
 		<div className={pageCSS.booksDiv}>
-			<h1>hey books!!!</h1>
-			<div className={pageCSS.names}>
-				<h3>{title}</h3>
-				<h3> - </h3>
-				<h3>{author}</h3>
+			<div className={pageCSS.innerbooksDiv}>
+				<div className={pageCSS.names}>
+					<h3>{title} - {author}</h3>
+				</div>
+				<p><b>The story starts as:</b> <i>{firstSentence == null ? 'nothing here':firstSentence}</i></p>
+				{characterList == null ? 'nothing here' : characterList.map(name => <p>{name}</p>)}
 			</div>
-			<p>description</p>
 		</div>
 	);
 }

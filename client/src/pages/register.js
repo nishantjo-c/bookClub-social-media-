@@ -1,4 +1,5 @@
 import registerCSS from './styles/register.module.css';
+import { Link } from 'react-router-dom'
 import {useState} from 'react';
 
 function Register(){
@@ -9,7 +10,7 @@ function Register(){
 
 	async function register(event){
 		event.preventDefault();
-		const response = await fetch('http://localhost:8000/register', {
+		const response = await fetch('http://localhost:5000/register', {
 			method:'POST',
 			headers:{
 				'Content-Type':'application/json'
@@ -52,6 +53,10 @@ function Register(){
 					type='submit'
 					value='register'/>
 			</form>
+			<div className={registerCSS.footerForm}>
+				<p>already a user?</p>
+				<Link className={registerCSS.link} to='/login'>signup</Link>
+			</div>
 		</div>
 	);
 }
