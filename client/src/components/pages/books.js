@@ -9,14 +9,20 @@ function Books(){
 	const [firstSentence, setFirstSentence] = useState(null);
 	const [characterList, setCharacterList] = useState(null);
 
+	const [books, setBooks] = useState([]);
+
 	useEffect(()=> {
 		const data = async () => {
-			const response = await fetch('https://openlibrary.org/search.json?title=fifty+shades+of+grey');
+			// const response = await fetch('https://openlibrary.org/search.json?title=1q84');
+			const response = await fetch('https://openlibrary.org/api/books?format=json&languages=en&limit=50&random=true');
 			const data = await response.json();
+			setBooks(data);
+			console.log(data)
 			return data;
 		}
-		data().then(responseData => {
-			console.log(responseData.docs[0]);
+		data();
+		/*data().then(responseData => {
+			// console.log(responseData.docs[0]);
 			try{
 				setTitle(responseData.docs[0].title);
 			}
@@ -44,7 +50,7 @@ function Books(){
 			catch(error){
 				console.log(error)	
 			}
-		})
+		})*/
 	}, [])
 
 

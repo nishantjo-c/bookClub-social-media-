@@ -1,5 +1,5 @@
 import registerCSS from './styles/register.module.css';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import {useState} from 'react';
 
 function Register(){
@@ -8,9 +8,11 @@ function Register(){
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
+	const history = useHistory();
+
 	async function register(event){
 		event.preventDefault();
-		const response = await fetch('http://localhost:5000/register', {
+		const response = await fetch('http://localhost:5001/register', {
 			method:'POST',
 			headers:{
 				'Content-Type':'application/json'
@@ -21,8 +23,11 @@ function Register(){
 				password
 			})
 		});
-		const data = await response.json();
-		console.log(data);
+		const {status, message} = await response.json();
+		if(status === 'ok'){
+			history.push('/login');
+			console.log(message);
+		}
 	}
 
 	return (

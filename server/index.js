@@ -16,8 +16,8 @@ app.post('/register', (req,res) => {
 
 
 	userFind(creds.email).then(value => {
+			console.log(value[0])
 		if(value[0]){
-			// console.log(value[0])
 			console.log(`${creds.email} alredy exist`)
 			res.send({
 					message:`Email ${creds.email} alredy exist.`
@@ -28,6 +28,7 @@ app.post('/register', (req,res) => {
 			console.log(`added ${creds.email}`)
 			res.send(
 				{
+					status:'ok',
 					message:`${creds.name} added. Email ${creds.email}`
 				});
 		}
@@ -43,20 +44,23 @@ app.post('/login', (req,res) => {
 		if(value[0]){
 			
 			if((creds.email === value[1][0].email) && (creds.password === value[1][0].password)){
-				console.log('user found')
-				res.send(true)
+
+				const objectId = value[1][0]._id;
+				console.log(`user found ${objectId}`)
+				res.send({validation:true, objectId})
 			}
 			else{
 				console.log('wrong credentials')
-				res.send(false)
+				res.send({validation:false})
 			}
 		}
 		else{
 			console.log("user doesn't exist, signup...")
+			res.send({validation:false})
 		}
 	})
 })
 
-app.listen(5000, (req,res) => {
+app.listen(5001, (req,res) => {
 	console.log('running server')
 })

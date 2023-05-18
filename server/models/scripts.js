@@ -12,7 +12,7 @@ export const userCreate = async function (creds){
 
 export const userDelete = async function (){
 	await user.deleteMany({
-		name:'admin'
+		name:''
 	})
 	console.log(`user deleted!`);
 }
@@ -40,4 +40,4 @@ export const userFindAll = async function (){
 	console.log(usr)
 }
 
-// userFindAll()
+userFindAll()

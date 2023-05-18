@@ -87,7 +87,9 @@ function Navbar( {search, setSearch, coverVal, bookTitle, authorName, onClick,
                             </Link>
                         </div>
                         <div className={navbarCSS.h4}>
-                            <Link to='/' className={navbarCSS.navlink}>
+                            <Link to='/' className={navbarCSS.navlink} onClick={() => {
+                                localStorage.removeItem('userUniqueId');
+                            }}>
                                 <h3>signout</h3>
                             </Link>
                         </div>

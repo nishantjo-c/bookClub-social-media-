@@ -4,11 +4,13 @@ import Updates from "./components/updates.js";
 import {useState} from 'react';
 import PopBookUp from './components/popBookUp.js';
 
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, useHistory } from 'react-router-dom';
 
 import Books from './components/pages/books.js';
 import Discussion from './components/pages/discussion.js';
 import Profile from './components/pages/profile.js';
+
+import {useEffect} from 'react'
 
 function Wrapper(){
 
@@ -21,6 +23,18 @@ function Wrapper(){
   const [authorName, setAuthorName] = useState('no author name!');
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const history = useHistory();
+
+	useEffect(()=> {
+		if(!localStorage.getItem('userUniqueId')){
+			history.push('/login');
+		}
+		else{
+			history.push('/home')
+		}
+	},[])
+
 
   const handleOpenPopup = () => {
     setIsOpen(true);
