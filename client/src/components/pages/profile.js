@@ -24,10 +24,10 @@ function Profile(){
 			<ImageAvatars />
 			<div className={profileCSS.innerMain}>
 				
-				<h1>Nishant Joshi</h1>
+				<h1>firstname lastname</h1>
 				<p>Joined in</p>
 				<h3>Birth day:</h3>
-				<p>January 4, 2001</p>
+				<p>month date, year</p>
 			</div>
 		</div>
 	);

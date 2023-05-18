@@ -34,6 +34,8 @@ function Login(){
 		}
 		else{
 			history.push('/login')
+			alert('user not found!')
+			history.push('/register')
 		}
 		// return data;
 	}
