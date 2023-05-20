@@ -10,6 +10,8 @@ import Books from './components/pages/books.js';
 import Discussion from './components/pages/discussion.js';
 import Profile from './components/pages/profile.js';
 
+import Post from './components/post.js'
+
 import {useEffect} from 'react'
 
 function Wrapper(){
@@ -60,6 +62,8 @@ function Wrapper(){
 					setAuthorName = {setAuthorName}
 	      />
 
+	      <Post />
+
 	      <div className='pop-up'>
 	        <PopBookUp 
 	          isOpen={isOpen} 
@@ -69,6 +73,8 @@ function Wrapper(){
 	          authorName={authorName}>
 	       </PopBookUp>
 	      </div>
+
+
 
 	      {/*<div className='components'>
 	      	        <PersonalUpdate />

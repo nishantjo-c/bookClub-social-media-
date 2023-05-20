@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import user from './users.js';
+import {user,books} from './users.js';
 
 mongoose.connect('mongodb://localhost/testdb')
 
@@ -12,7 +12,7 @@ export const userCreate = async function (creds){
 
 export const userDelete = async function (){
 	await user.deleteMany({
-		name:''
+		/*name:''*/
 	})
 	console.log(`user deleted!`);
 }

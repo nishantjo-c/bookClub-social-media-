@@ -12,7 +12,25 @@ const userSchema = mongoose.Schema({
 	password:{
 		type:String,
 		require:true
+	},
+	booksData:{
+		type:mongoose.Schema.Types.ObjectId,
+		ref:'userData',
 	}
 });
 
-export default mongoose.model('user', userSchema);
+const booksData = mongoose.Schema({
+	status:{
+		type:String
+	},
+	rating:{
+		type:Number
+	},
+	review:{
+		type:String
+	}
+})
+
+const user = mongoose.model('user', userSchema);
+const books = mongoose.model('booksData', booksData);
+export {user,books}
