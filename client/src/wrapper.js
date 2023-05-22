@@ -62,7 +62,7 @@ function Wrapper(){
 					setAuthorName = {setAuthorName}
 	      />
 
-	      <Post />
+
 
 	      <div className='pop-up'>
 	        <PopBookUp 
@@ -86,6 +86,7 @@ function Wrapper(){
 	      	        />
 	      	      </div>*/}
 
+	      <Route exact path='/home' component={Post} />
 	  		<Route exact path='/books' component={Books} />
         <Route exact path='/profile' component={Profile} />
         <Route exact path='/discussion' component={Discussion} />

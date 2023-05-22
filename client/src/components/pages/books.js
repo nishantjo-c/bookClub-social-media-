@@ -17,7 +17,7 @@ function Books(){
 			const response = await fetch('https://openlibrary.org/api/books?format=json&languages=en&limit=50&random=true');
 			const data = await response.json();
 			setBooks(data);
-			console.log(data)
+			// console.log(data)
 			return data;
 		}
 		data();

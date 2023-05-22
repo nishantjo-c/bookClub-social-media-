@@ -67,6 +67,13 @@ nav input{
 /*    padding-left: 20px;*/
     padding-right: 50px;
     background: #C9DBB2;
+
+    display: flex;
+}
+
+#img{
+    width: 10px;
+    height: auto;
 }
 
 .searchBar{
