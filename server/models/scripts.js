@@ -1,9 +1,11 @@
 import mongoose from 'mongoose';
-import {user,posts} from './users.js';
+import {user,posts,bookStatus} from './users.js';
 
 mongoose.connect('mongodb://localhost/testdb')
 
 
+/*		USER		*/
+/*------------------*/
 /*	CREATING A USER	*/
 export const userCreate = async function (creds){
 	const newUser = await user.create(creds)
@@ -47,9 +49,10 @@ export const userFindAll = async function (){
 // userFindAll()
 
 
+/*		POST		*/
+/*------------------*/
 /*	ADDING	POST FOR THE USER	*/
-
-export const userPost = async function (data){
+export const createPost = async function (data){
 	const post = await posts.create(data);
 	// console.log('56',post)
 }
@@ -71,11 +74,36 @@ export const findPostById = async function (userId){
 
 // findPostById('646b2ca04efe516b78c02544')
 
-
 /*	REMOVING POSTS	*/
 export const removePosts = async function(){
 	const post = await posts.deleteMany();
 	console.log('all posts removed')
 }
-
 // removePosts()
+
+
+/*		BOOK POST		*/
+/*----------------------*/
+/*	 ADDING A NEW BOOK POST  */
+export const addBook = async function(statusAndRating){
+	const bookPost = await bookStatus.create({
+		status:statusAndRating.status,
+		rating:statusAndRating.rating,
+		id:statusAndRating.id
+	})
+	console.log(bookPost)
+	return bookPost;
+}
+
+/*	 FINDING BOOKS  	*/
+export const findBookPost = async function(){
+	const findBooks = await bookStatus.find();
+	console.log(findBooks)
+}
+// findBookPost();
+
+/*	 REMOVING BOOK POSTS 	*/
+export const removeBook = async function(){
+	const remove = await bookStatus.deleteMany();
+}
+// removeBook()

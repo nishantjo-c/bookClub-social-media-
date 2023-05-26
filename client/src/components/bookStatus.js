@@ -1,4 +1,5 @@
 import * as React from 'react';
+import useEffect from 'react'
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -11,9 +12,8 @@ import Typography from '@mui/material/Typography';
 
 
 /* SELECTING STATUS OF THE BOOK "READING, READ, WANT TO READ" */
-
-export const SelectSmall = function () {
-  const [status, setStatus] = React.useState('');
+export const SelectSmall = function ({status, setStatus}) {
+  /*const [status, setStatus] = React.useState('');*/
 
   const handleChange = (event) => {
     setStatus(event.target.value);
@@ -41,10 +41,10 @@ export const SelectSmall = function () {
 }
 
 
-/* RATING SECTION*/
 
-export const BasicRating = function () {
-  const [value, setValue] = React.useState(0);
+/* RATING SECTION*/
+export const BasicRating = function ({value, setValue}) {
+  /*const [value, setValue] = React.useState(0);*/
 
   return (
     <Box
@@ -63,3 +63,4 @@ export const BasicRating = function () {
     </Box>
   );
 }
+

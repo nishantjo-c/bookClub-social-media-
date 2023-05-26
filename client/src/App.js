@@ -16,7 +16,7 @@ function App() {
       <Redirect to='/login' />
     </Route>
     <Route path='/login' exact component={Login} />
-    <Route path='/home' exact component={Wrapper} />
+    <Route path='/home' component={Wrapper} />
     <Route path='/register' exact component={Register} />
 
   </Router>

@@ -39,9 +39,11 @@ function Wrapper(){
 
 
   const handleOpenPopup = () => {
+  	history.push('/home/pop')
     setIsOpen(true);
   }
   const handleClosePopup = () => {
+  	history.push('/home')
     setIsOpen(false);
   }
 
@@ -87,7 +89,7 @@ function Wrapper(){
 	      	      </div>*/}
 
 	      <Route exact path='/home' component={Post} />
-	  		<Route exact path='/books' component={Books} />
+	      <Route exact path='/books' component={Books} />
         <Route exact path='/profile' component={Profile} />
         <Route exact path='/discussion' component={Discussion} />
 	  </BrowserRouter>

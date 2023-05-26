@@ -15,7 +15,7 @@ const userSchema = mongoose.Schema({
 	}
 });
 
-const postData = mongoose.Schema({
+const postSchema = mongoose.Schema({
 	post:{
 		type:String,
 	},
@@ -30,7 +30,19 @@ const postData = mongoose.Schema({
 	id:String
 })
 
+const bookStatusSchema = mongoose.Schema({
+	status:{
+		type:Number
+	},
+	rating:{
+		type:Number
+	},
+	id:String
+})
+
 const user = mongoose.model('user', userSchema);
-const posts = mongoose.model('posts', postData);
-export {user,posts}
+const posts = mongoose.model('posts', postSchema);
+const bookStatus = mongoose.model('bookStatus', bookStatusSchema);
+
+export {user,posts,bookStatus}
 

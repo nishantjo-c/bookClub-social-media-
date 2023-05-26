@@ -4,9 +4,10 @@ import {
 		userCreate, 
 		userDelete, 
 		userFind, 
-		userPost, 
+		createPost, 
 		findAllPosts, 
-		findPostById 
+		findPostById,
+		addBook
 	} from './models/scripts.js';
 
 const app = express();
@@ -78,7 +79,7 @@ app.post('/home', (req,res) => {
 		post:req.body.post,
 		id:req.body.id
 	}
-	userPost(data);
+	createPost(data);
 	console.log('index line 77', data)
 
 	// findPostById(data.id)
@@ -99,6 +100,18 @@ app.get('/home', (req,res) => {
 	});
 })
 
+/*	 POPUP POST ROUTE	*/
+app.post('/home/pop', (req,res) => {
+
+	const statusAndRating = {
+		status:req.body.status,
+		rating:req.body.value,
+		id:req.body.id
+	}
+	// addBook(statusAndRating);
+	res.send(statusAndRating);
+
+})
 
 /*	SERVER IS LISTENING AT PORT 5000	*/
 app.listen(5000, (req,res) => {

@@ -1,6 +1,7 @@
 
 .popUpParent{
 	background-color: mintcream;
+/*	background-color: rgba(245, 255, 250, 0.5);*/
 
 	position: absolute;
 	z-index: 999;

@@ -1,12 +1,14 @@
 import postCSS from '../styles/post.module.css';
 import {useState, useRef, useEffect} from 'react';
 
+
+
 const Post = () => {
 
 	const [post, setPost] = useState('');
 	const [allPost, setallPost] = useState([]);
 	const textareaRef = useRef(null);
-	const [count, setCount] = useState(0);
+	const [like, setLike] = useState(0);
 
 
 	const id = localStorage.userUniqueId;
@@ -18,11 +20,13 @@ const Post = () => {
 	}
 
 	function handleClick(){
-		setCount(count+1);
+		setLike(like+1);
 	}
 
-		/*	API CALL WHEN SUBMITTING A POST	*/
-		async function submit(){
+	/*	API CALL WHEN SUBMITTING A POST	*/
+	async function submit(){
+		if(post != ''){
+
 			const response = await fetch('http://localhost:5000/home', {
 				method:'POST',
 				headers:{
@@ -37,8 +41,11 @@ const Post = () => {
 			const data = await response.json();
 
 			// console.log(data)
-			setallPost(data)
+			setallPost(data);
+			setPost('');
+			textareaRef.current.value = '';
 		}
+	}
 
 		/*	API CALL TO FETCH DATA CONTINUOUSLY	*/
 		useEffect(() => {
@@ -53,15 +60,6 @@ const Post = () => {
 			fetchData();
 		},[])
 	
-	/*if(post != ''){
-			const updatesPost = [post, ...allPost]
-			setallPost(updatesPost)
-			// console.log(updatesPost)
-			setPost('');
-		}
-		textareaRef.current.value = '';*/
-
-
 	return (
 		<div className={postCSS.mainDiv}>
 			<div className={postCSS.textarea}>
@@ -83,7 +81,7 @@ const Post = () => {
 								<div className={postCSS.post} key={key}>
 									<p>{element.post}</p>
 									<div className={postCSS.likeandcomment}>
-										<p>{count}</p>
+										<p>{like}</p>
 										<button className={postCSS.like} onClick={handleClick}>like</button>
 										<button className={postCSS.comment}>comment</button>
 									</div>
