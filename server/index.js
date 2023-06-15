@@ -7,6 +7,7 @@ import {
 		createPost, 
 		findAllPosts, 
 		findPostById,
+		findUserName,
 		addBook
 	} from './models/scripts.js';
 
@@ -111,6 +112,17 @@ app.post('/home/pop', (req,res) => {
 	// addBook(statusAndRating);
 	res.send(statusAndRating);
 
+})
+
+/*	 PROFILE ROUTE	*/
+app.get('/:id', async (req,res) => {
+
+	// console.log(req.params.id)
+		const val = req.params.id
+		// console.log(val)
+		const name = await findUserName(val)
+		// console.log('line 124 index', name[0].name)
+	res.send({name:name[0].name});
 })
 
 /*	SERVER IS LISTENING AT PORT 5000	*/

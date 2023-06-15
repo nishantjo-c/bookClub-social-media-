@@ -1,3 +1,5 @@
+import {useEffect, useState} from 'react';
+
 import profileCSS from './styles/profile.module.css'
 import profileImg from './static/images/profile1.jpeg'
 
@@ -17,14 +19,39 @@ function ImageAvatars() {
     </Stack>
   );
 }
+	
+
 
 function Profile(){
+	const [name, setName] = useState('name');
+
+		async function fetchData(){
+			try{
+				const id = localStorage.userUniqueId;
+				const response = await fetch(`http://localhost:5000/${id}`);
+				const data = await response.json();
+				console.log(data)
+
+				setName(data.name)
+
+			}
+			catch(error){
+				console.log(error)
+			}
+			// const data = await response.json();
+			// console.log(data)
+		}
+
+		useEffect(() => {
+			fetchData();
+		},[])
+
 	return (
 		<div className={profileCSS.main}>
 			<ImageAvatars />
 			<div className={profileCSS.innerMain}>
 				
-				<h1>firstname lastname</h1>
+				<h1>{name}</h1>
 				<p>Joined in</p>
 				<h3>Birth day:</h3>
 				<p>month date, year</p>

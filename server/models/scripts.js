@@ -107,3 +107,14 @@ export const removeBook = async function(){
 	const remove = await bookStatus.deleteMany();
 }
 // removeBook()
+
+
+export const findUserName = async function(userId){
+	const username = await user.find(
+		{ _id:userId }
+	)
+	// console.log('line 116 index', username)
+	return username;
+}
+
+// findUserName('646b2ca04efe516b78c02544')
