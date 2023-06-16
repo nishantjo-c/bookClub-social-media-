@@ -60,7 +60,8 @@ export const createPost = async function (data){
 /*	FINDING ALL POSTS	*/
 export const findAllPosts = async function(){
 	const post = await posts.find();
-	return post;
+	const bookpost = await findBookPost();
+	return [...post, ...bookpost];
 }
 
 /*	FINDING POST BY ID	*/
@@ -91,14 +92,15 @@ export const addBook = async function(statusAndRating){
 		rating:statusAndRating.rating,
 		id:statusAndRating.id
 	})
-	console.log(bookPost)
-	return bookPost;
+	// console.log(bookPost)
+	// return bookPost;
 }
 
 /*	 FINDING BOOKS  	*/
 export const findBookPost = async function(){
 	const findBooks = await bookStatus.find();
-	console.log(findBooks)
+
+	return findBooks;
 }
 // findBookPost();
 
@@ -109,6 +111,8 @@ export const removeBook = async function(){
 // removeBook()
 
 
+
+/*	 FINDING USERNAME	*/
 export const findUserName = async function(userId){
 	const username = await user.find(
 		{ _id:userId }

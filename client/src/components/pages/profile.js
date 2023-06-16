@@ -28,7 +28,7 @@ function Profile(){
 		async function fetchData(){
 			try{
 				const id = localStorage.userUniqueId;
-				const response = await fetch(`http://localhost:5000/${id}`);
+				const response = await fetch(`http://localhost:4000/${id}`);
 				const data = await response.json();
 				console.log(data)
 

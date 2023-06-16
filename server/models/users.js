@@ -16,6 +16,7 @@ const userSchema = mongoose.Schema({
 });
 
 const postSchema = mongoose.Schema({
+	// date: Date,
 	post:{
 		type:String,
 	},
@@ -31,6 +32,7 @@ const postSchema = mongoose.Schema({
 })
 
 const bookStatusSchema = mongoose.Schema({
+	// date: Date,
 	status:{
 		type:Number
 	},

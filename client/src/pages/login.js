@@ -11,33 +11,41 @@ function Login(){
 
 	async function login(event){
 		event.preventDefault();
-		const response = await fetch('http://localhost:5000/login', {
-			method:'POST',
-			headers:{
-				'Content-Type':'application/json'
-			},
-			body:JSON.stringify({
-				email,
-				password
-			})
-		});
-		const { validation, objectId } = await response.json();
-		console.log(validation, objectId);
-		
-		if(objectId !== undefined){
-			localStorage.setItem('userUniqueId', objectId);
-		}
 
-		if(localStorage.userUniqueId === objectId && localStorage.userUniqueId != undefined){
-			console.log(localStorage.userUniqueId === undefined)
-			history.push('/home');
+		try{
+
+			const response = await fetch('http://localhost:4000/login', {
+				method:'POST',
+				headers:{
+					'Content-Type':'application/json'
+				},
+				body:JSON.stringify({
+					email,
+					password
+				})
+			});
+			const { validation, objectId } = await response.json();
+			console.log(validation, objectId);
+			
+			if(objectId !== undefined){
+				localStorage.setItem('userUniqueId', objectId);
+			}
+
+			if(localStorage.userUniqueId === objectId && localStorage.userUniqueId !== undefined){
+				console.log(localStorage.userUniqueId === undefined)
+				history.push('/home');
+			}
+			else{
+				history.push('/login')
+				alert('user not found!')
+				history.push('/register')
+			}
+			// return data;
+
+			}
+		catch(error){
+			console.log(error)
 		}
-		else{
-			history.push('/login')
-			alert('user not found!')
-			history.push('/register')
-		}
-		// return data;
 	}
 	
 	return (

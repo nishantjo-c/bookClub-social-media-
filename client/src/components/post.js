@@ -25,9 +25,9 @@ const Post = () => {
 
 	/*	API CALL WHEN SUBMITTING A POST	*/
 	async function submit(){
-		if(post != ''){
+		if(post !== ''){
 
-			const response = await fetch('http://localhost:5000/home', {
+			const response = await fetch('http://localhost:4000/home', {
 				method:'POST',
 				headers:{
 					'Content-Type':'application/json'
@@ -50,7 +50,7 @@ const Post = () => {
 		/*	API CALL TO FETCH DATA CONTINUOUSLY	*/
 		useEffect(() => {
 			async function fetchData(){
-				const response = await fetch('http://localhost:5000/home');
+				const response = await fetch('http://localhost:4000/home');
 				const data = await response.json();
 				setallPost(data);
 				console.log(data)
@@ -75,7 +75,7 @@ const Post = () => {
 			</div>
 
 			<div className={postCSS.updates}>
-				{ isLoading ? (<p>Loading wait...</p>) : 
+				{ /*isLoading ? (<p>Loading wait...</p>) : 
 						(allPost.map((element, key) => {
 							return (
 								<div className={postCSS.post} key={key}>
@@ -87,7 +87,7 @@ const Post = () => {
 									</div>
 								</div>
 							)
-						}))
+						}))*/
 				}
 			</div>
 		</div>

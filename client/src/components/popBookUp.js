@@ -14,7 +14,7 @@ const PopBookUp = ({isOpen, onClick, coverVal, bookTitle, authorName}) => {
 	async function submit(){
 		/*console.log(`status: ${status} value ${value}`)*/
 	    
-	    const response = await fetch('http://localhost:5000/home/pop',{
+	    const response = await fetch('http://localhost:4000/home/pop',{
 	      method:'POST',
 	      headers:{
 	        'Content-Type':'application/json'
@@ -38,6 +38,10 @@ const PopBookUp = ({isOpen, onClick, coverVal, bookTitle, authorName}) => {
 
 	  }
 
+	  function handleClick(){
+	  	submit();
+	  	onClick();
+	  }
 
 	if(!isOpen){
 		return null;
@@ -52,7 +56,7 @@ return (
 				<p className={popBookUpCSS.authPop}>by {authorName}</p>
 				<SelectSmall status={status} setStatus={setStatus} />
 				<BasicRating value={value} setValue={setValue} />
-			<button type='submit' onClick={submit}>post</button>
+			<button type='submit' onClick={handleClick}>post</button>
 			</div>
 
 		<div className={popBookUpCSS.popUp}>

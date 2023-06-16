@@ -47,6 +47,7 @@ app.post('/register', (req,res) => {
 
 /*	LOGIN ROUTE	*/
 app.post('/login', (req,res) => {
+	console.log('chal rha h... line 50')
 	const creds = {
 		email:req.body.email,
 		password:req.body.password
@@ -81,12 +82,12 @@ app.post('/home', (req,res) => {
 		id:req.body.id
 	}
 	createPost(data);
-	console.log('index line 77', data)
+	console.log('index line 85', data)
 
 	// findPostById(data.id)
 	findAllPosts()
 	.then((posts) => {
-		console.log(posts)
+		// console.log(posts)
 		res.send(posts);
 	});
 })
@@ -109,7 +110,7 @@ app.post('/home/pop', (req,res) => {
 		rating:req.body.value,
 		id:req.body.id
 	}
-	// addBook(statusAndRating);
+	addBook(statusAndRating);
 	res.send(statusAndRating);
 
 })
@@ -125,7 +126,7 @@ app.get('/:id', async (req,res) => {
 	res.send({name:name[0].name});
 })
 
-/*	SERVER IS LISTENING AT PORT 5000	*/
-app.listen(5000, (req,res) => {
+/*	SERVER IS LISTENING AT PORT 6000	*/
+app.listen(4000, (req,res) => {
 	console.log('running server')
 })
