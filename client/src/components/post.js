@@ -59,7 +59,7 @@ const Post = () => {
 						console.log(element)
 					}
 				})*/
-
+				console.log(data)
 				/*jaan booch k lagaya gya timeout cool lagne k liye*/
 				setTimeout(() => {setIsLoading(false)},1500)
 			}
@@ -97,6 +97,7 @@ return (
 					else if(element.flag === 1){
 						return (
 							<div className={postCSS.post} key={key}>
+								<p>{element.postBy}</p>
 								<p>{element.bookTitle}</p>
 								<p>{element.authorName}</p>
 							</div>

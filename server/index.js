@@ -114,7 +114,6 @@ app.post('/home/pop', (req,res) => {
 	}
 	addBook(statusAndRating);
 	res.send(statusAndRating);
-
 })
 
 /*	 PROFILE ROUTE	*/

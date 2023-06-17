@@ -52,6 +52,9 @@ const bookStatusSchema = mongoose.Schema({
 	rating:{
 		type:Number
 	},
+	postBy:{
+		type:String
+	},
 	id:String
 })
 

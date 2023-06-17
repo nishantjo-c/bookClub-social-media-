@@ -87,14 +87,16 @@ export const removePosts = async function(){
 /*----------------------*/
 /*	 ADDING A NEW BOOK POST  */
 export const addBook = async function(statusAndRating){
+	const name = await findUserName(statusAndRating.id);
 	const bookPost = await bookStatus.create({
 		status:statusAndRating.status,
 		rating:statusAndRating.rating,
 		id:statusAndRating.id,
 		bookTitle:statusAndRating.bookTitle,
-		authorName:statusAndRating.authorName
+		authorName:statusAndRating.authorName,
+		postBy:name[0].name
 	})
-	// console.log(bookPost)
+	// console.log(name)
 	// return bookPost;
 }
 
