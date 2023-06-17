@@ -8,6 +8,7 @@ const PopBookUp = ({isOpen, onClick, coverVal, bookTitle, authorName}) => {
 
 	const [status, setStatus] = React.useState('');
 	const [value, setValue] = React.useState(0);
+
 	const id = localStorage.userUniqueId;
 
 	/*  POST REQUEST FOR SENDING STATUS AND RATING DATA   */
@@ -22,19 +23,21 @@ const PopBookUp = ({isOpen, onClick, coverVal, bookTitle, authorName}) => {
 	      body:JSON.stringify({
 	        status,
 	        value,
-	        id
+	        id,
+	        bookTitle,
+	        authorName
 	      })
 	    })
 	    const data = await response.json();
 	    console.log(data);
-
+		/*
 	    switch(data.status){
 	    	case 1: console.log(`${id} is reading and rated it ${data.rating} stars.`)
 	    			break;
 	    	case 2: console.log(`${id} had read and rated it ${data.rating} stars.`)
 	    			break;
 	    	case 3: console.log(`${id} wants to read and rated it ${data.rating} stars.`)
-	    }	
+	    }*/
 
 	  }
 

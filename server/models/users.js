@@ -16,6 +16,10 @@ const userSchema = mongoose.Schema({
 });
 
 const postSchema = mongoose.Schema({
+	flag:{
+		type:Number,
+		default:0
+	},
 	// date: Date,
 	post:{
 		type:String,
@@ -32,7 +36,16 @@ const postSchema = mongoose.Schema({
 })
 
 const bookStatusSchema = mongoose.Schema({
-	// date: Date,
+	flag:{
+		type:Number,
+		default:1
+	},
+	bookTitle:{
+		type:String
+	},
+	authorName:{
+		type:String
+	},
 	status:{
 		type:Number
 	},

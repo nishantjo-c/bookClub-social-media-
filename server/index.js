@@ -82,7 +82,7 @@ app.post('/home', (req,res) => {
 		id:req.body.id
 	}
 	createPost(data);
-	console.log('index line 85', data)
+	// console.log('index line 85', data)
 
 	// findPostById(data.id)
 	findAllPosts()
@@ -108,7 +108,9 @@ app.post('/home/pop', (req,res) => {
 	const statusAndRating = {
 		status:req.body.status,
 		rating:req.body.value,
-		id:req.body.id
+		id:req.body.id,
+		bookTitle:req.body.bookTitle,
+		authorName:req.body.authorName
 	}
 	addBook(statusAndRating);
 	res.send(statusAndRating);

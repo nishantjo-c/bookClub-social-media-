@@ -90,16 +90,17 @@ export const addBook = async function(statusAndRating){
 	const bookPost = await bookStatus.create({
 		status:statusAndRating.status,
 		rating:statusAndRating.rating,
-		id:statusAndRating.id
+		id:statusAndRating.id,
+		bookTitle:statusAndRating.bookTitle,
+		authorName:statusAndRating.authorName
 	})
 	// console.log(bookPost)
 	// return bookPost;
 }
 
-/*	 FINDING BOOKS  	*/
+/*	 FINDING ALL BOOKS  	*/
 export const findBookPost = async function(){
 	const findBooks = await bookStatus.find();
-
 	return findBooks;
 }
 // findBookPost();
