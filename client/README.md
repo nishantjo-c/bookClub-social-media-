@@ -1,3 +1,15 @@
+# To free the already running PORT
+
+sudo lsof -i :PORT
+<!-- this display only the entries related to the port provided -->
+sudo kill PID
+<!-- the PID of the specific port will be mentioned -->
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

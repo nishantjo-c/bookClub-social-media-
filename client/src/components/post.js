@@ -8,7 +8,9 @@ const Post = () => {
 	const [allPost, setallPost] = useState([]);
 	const textareaRef = useRef(null);
 	const [like, setLike] = useState(0);
+	const [comment, setComment] = useState([]);
 
+	const [style, setStyle] = useState('none');
 
 	const id = localStorage.userUniqueId;
 	const [isLoading, setIsLoading] = useState(true);
@@ -21,6 +23,22 @@ const Post = () => {
 
 	function handleClick(){
 		setLike(like+1);
+	}
+
+	function handleComment(e){
+		if(e.key === 'Enter'){
+			console.log(e.currentTarget.value)
+			e.currentTarget.value = ''
+		}
+	}
+
+	function handleCommentButton(e){
+/*		if(e.key === 'Enter'){
+			console.log(e.currentTarget.value)
+			e.currentTarget.value = ''
+		}*/
+		console.log(e)
+		setStyle('')
 	}
 
 	/*	API CALL WHEN SUBMITTING A POST	*/
@@ -54,11 +72,6 @@ const Post = () => {
 				const data = await response.json();
 				setallPost(data);
 				
-				/*data.map((element, key) => {
-					if(element.flag === 1){
-						console.log(element)
-					}
-				})*/
 				console.log(data)
 				/*jaan booch k lagaya gya timeout cool lagne k liye*/
 				setTimeout(() => {setIsLoading(false)},1500)
@@ -90,18 +103,51 @@ return (
 								<div className={postCSS.likeandcomment}>
 									<p>{like}</p>
 									<button className={postCSS.like} onClick={handleClick}>like</button>
-									<button className={postCSS.comment}>comment</button>
+									<button className={postCSS.comment} onClick={handleCommentButton}>comment</button>
 								</div>
+								<textarea 
+									id={postCSS.comments} 
+									placeholder='comment...' 
+									onKeyDown={handleComment}
+									style={{display:style}}></textarea>
 							</div>)
 					}
 					else if(element.flag === 1){
-						return (
-							<div className={postCSS.post} key={key}>
-								<p>{element.postBy}</p>
-								<p>{element.bookTitle}</p>
-								<p>{element.authorName}</p>
-							</div>
-						)
+						if(element.status === 1){
+							return (
+								<div className={postCSS.post} key={key}>
+									<p>{element.postBy}</p>
+									<p>is reading</p>
+									<p>{element.bookTitle}</p>
+									<p>by</p>
+									<p>{element.authorName}</p>
+								</div>
+							)
+						}
+						else if(element.status === 2){
+							return (
+								<div className={postCSS.post} key={key}>
+									<p>{element.postBy}</p>
+									<p>has read</p>
+									<p>{element.bookTitle}</p>
+									<p>by</p>
+									<p>{element.authorName}</p>
+									<br/>
+									<p>Rated it: {element.rating} stars</p>
+								</div>
+							)
+						}
+						else if(element.status === 3){
+							return (
+								<div className={postCSS.post} key={key}>
+									<p>{element.postBy}</p>
+									<p>wants to read</p>
+									<p>{element.bookTitle}</p>
+									<p>by</p>
+									<p>{element.authorName}</p>
+								</div>
+							)
+						}
 					}
 				}
 			))}

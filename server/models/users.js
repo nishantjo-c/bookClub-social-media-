@@ -32,7 +32,11 @@ const postSchema = mongoose.Schema({
 		type:[String],
 		default:['no comments']
 	},
-	id:String
+	id:String,
+	date:{
+		type:Date,
+		default: Date.now
+	}
 })
 
 const bookStatusSchema = mongoose.Schema({
@@ -55,7 +59,11 @@ const bookStatusSchema = mongoose.Schema({
 	postBy:{
 		type:String
 	},
-	id:String
+	id:String,
+	date:{
+		type:Date,
+		default: Date.now
+	}
 })
 
 const user = mongoose.model('user', userSchema);
