@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import {user,posts,bookStatus} from './users.js';
 
-mongoose.connect('mongodb://localhost/testdb')
+mongoose.connect('mongodb://0.0.0.0:27017')
 
 
 /*		USER		*/
