@@ -1,12 +1,18 @@
 
 .booksDiv{
-	border: 2px solid black;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	/* border: 2px solid black; */
+	padding: 50px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	column-gap: 25px;
+	row-gap: 20px;
+	/* justify-content: center; */
+	/* align-items: center; */
 }
 
 .innerbooksDiv{
-
-	
+	border: 2px solid black;
+	padding: 15px;
+	border-radius: 20px;
+	box-shadow: 10px 10px black;
 }

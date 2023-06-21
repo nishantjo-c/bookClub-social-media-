@@ -27,8 +27,9 @@ const Post = () => {
 
 	function handleComment(e){
 		if(e.key === 'Enter'){
-			console.log(e.currentTarget.value)
+			console.log(e.currentTarget)
 			e.currentTarget.value = ''
+			setStyle('none')
 		}
 	}
 

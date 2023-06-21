@@ -14,13 +14,21 @@ function Books(){
 	useEffect(()=> {
 		const data = async () => {
 			// const response = await fetch('https://openlibrary.org/search.json?title=1q84');
-			const response = await fetch('https://openlibrary.org/api/books?format=json&languages=en&limit=50&random=true');
+			const response = await fetch('https://www.googleapis.com/books/v1/volumes?q=fiction&maxResults=15&orderBy=relevance&key=AIzaSyBEh3Q15OahloFe2eb-K1wO5pvqUHBVecA');
 			const data = await response.json();
-			setBooks(data);
-			// console.log(data)
-			return data;
+			// console.log(books);
+			return data.items;
 		}
 		data();
+		data().then(responseData => {
+			// console.log(responseData)
+			setBooks(responseData);
+			/*responseData.map((data, key)=> {
+				console.log(data);
+			})*/
+		})
+
+
 		/*data().then(responseData => {
 			// console.log(responseData.docs[0]);
 			try{
@@ -56,15 +64,26 @@ function Books(){
 
 	return (
 		<div className={pageCSS.booksDiv}>
-			<div className={pageCSS.innerbooksDiv}>
-				<div className={pageCSS.names}>
-					<h3>{title} - {author}</h3>
-				</div>
-				<p><b>The story starts as:</b> <i>{firstSentence == null ? 'nothing here':firstSentence}</i></p>
-				{characterList == null ? 'nothing here' : characterList.map(name => <p>{name}</p>)}
-			</div>
+			{books.map((book, key) => {
+				return (
+					<div className={pageCSS.innerbooksDiv} key={key}>
+						<h2>{book.volumeInfo.title}</h2>
+						<h4>by: {book.volumeInfo.authors[0]}</h4>
+						<p>{book.volumeInfo.description}</p>
+						<br/>
+					</div>
+				)
+			})}
 		</div>
 	);
 }
 
 export default Books;
+
+// <div className={pageCSS.innerbooksDiv}>
+// 				<div className={pageCSS.names}>
+// 					<h3>{title} - {author}</h3>
+// 				</div>
+// 				<p><b>The story starts as:</b> <i>{firstSentence == null ? 'nothing here':firstSentence}</i></p>
+// 				{characterList == null ? 'nothing here' : characterList.map(name => <p>{name}</p>)}
+// 			</div>
