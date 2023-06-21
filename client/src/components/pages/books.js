@@ -2,6 +2,7 @@ import pageCSS from './styles/books.module.css'
 import { useState,useEffect } from 'react'
 
 
+
 function Books(){
 
 	const [title, setTitle] = useState('');
@@ -13,52 +14,17 @@ function Books(){
 
 	useEffect(()=> {
 		const data = async () => {
-			// const response = await fetch('https://openlibrary.org/search.json?title=1q84');
-			const response = await fetch('https://www.googleapis.com/books/v1/volumes?q=fiction&maxResults=15&orderBy=relevance&key=AIzaSyBEh3Q15OahloFe2eb-K1wO5pvqUHBVecA');
-			const data = await response.json();
-			// console.log(books);
-			return data.items;
-		}
-		data();
-		data().then(responseData => {
-			// console.log(responseData)
-			setBooks(responseData);
-			/*responseData.map((data, key)=> {
-				console.log(data);
-			})*/
-		})
-
-
-		/*data().then(responseData => {
-			// console.log(responseData.docs[0]);
 			try{
-				setTitle(responseData.docs[0].title);
+				const response = await fetch('https://www.googleapis.com/books/v1/volumes?q=fiction&maxResults=15&orderBy=relevance&key=AIzaSyBEh3Q15OahloFe2eb-K1wO5pvqUHBVecA');
+				const data = await response.json();
+				console.log(data)
+				// setBooks(data.items);
 			}
 			catch(error){
 				console.log(error);
 			}
-
-			try{
-				setAuthor(responseData.docs[0].author_name[0]);
-			}
-			catch(error){
-				console.log(error)	
-			}
-
-			try{
-				setFirstSentence(responseData.docs[0].first_sentence[0])
-			}
-			catch(error){
-				console.log(error)
-			}
-
-			try{
-				setCharacterList(responseData.docs[0].person)
-			}
-			catch(error){
-				console.log(error)	
-			}
-		})*/
+		}
+		data();
 	}, [])
 
 

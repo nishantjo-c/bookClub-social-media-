@@ -16,6 +16,9 @@ const userSchema = mongoose.Schema({
 });
 
 const postSchema = mongoose.Schema({
+	postBy:{
+		type:String
+	},
 	flag:{
 		type:Number,
 		default:0

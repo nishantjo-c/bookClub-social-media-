@@ -1,6 +1,20 @@
 import postCSS from '../styles/post.module.css';
 import {useState, useRef, useEffect} from 'react';
+import profileImg from './pages/static/images/profile1.jpeg';
 
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+
+
+function ImageAvatars() {
+  return (
+    <Stack direction="row" spacing={2}>
+      {/* <Avatar alt="Remy Sharp" src={profileImg} /> */}
+	  <Avatar alt="Remy Sharp"  />
+    </Stack>
+  );
+}
 
 const Post = () => {
 
@@ -73,12 +87,12 @@ const Post = () => {
 				const data = await response.json();
 				setallPost(data);
 				
-				console.log(data)
+				// console.log(data)
 				/*jaan booch k lagaya gya timeout cool lagne k liye*/
 				setTimeout(() => {setIsLoading(false)},1500)
 			}
 			fetchData();
-		},[])
+		})
 	
 return (
 	<div className={postCSS.mainDiv}>
@@ -100,6 +114,10 @@ return (
 					if(element.flag === 0) {
 						return (
 							<div className={postCSS.post} key={key}>
+								<div className={postCSS.imageAndName}>
+									<ImageAvatars />
+									<h3>{element.postBy}</h3>
+								</div>
 								<p>{element.post}</p>
 								<div className={postCSS.likeandcomment}>
 									<p>{like}</p>
@@ -117,35 +135,35 @@ return (
 						if(element.status === 1){
 							return (
 								<div className={postCSS.post} key={key}>
-									<p>{element.postBy}</p>
-									<p>is reading</p>
-									<p>{element.bookTitle}</p>
-									<p>by</p>
-									<p>{element.authorName}</p>
+									<div className={postCSS.imageAndName}>
+										<ImageAvatars />
+										<h3>{element.postBy}</h3>
+									</div>
+									<p>is reading {element.bookTitle} by {element.authorName}</p>
 								</div>
 							)
 						}
 						else if(element.status === 2){
 							return (
 								<div className={postCSS.post} key={key}>
-									<p>{element.postBy}</p>
-									<p>has read</p>
-									<p>{element.bookTitle}</p>
-									<p>by</p>
-									<p>{element.authorName}</p>
+									<div className={postCSS.imageAndName}>
+										<ImageAvatars />
+										<h3>{element.postBy}</h3>
+									</div>
+									<p>has read {element.bookTitle} by {element.authorName}</p>
 									<br/>
-									<p>Rated it: {element.rating} stars</p>
+									<p><b>Rated it: </b>{element.rating} stars</p>
 								</div>
 							)
 						}
 						else if(element.status === 3){
 							return (
 								<div className={postCSS.post} key={key}>
-									<p>{element.postBy}</p>
-									<p>wants to read</p>
-									<p>{element.bookTitle}</p>
-									<p>by</p>
-									<p>{element.authorName}</p>
+									<div className={postCSS.imageAndName}>
+										<ImageAvatars />
+										<h3>{element.postBy}</h3>
+									</div>
+									<p>wants to read {element.bookTitle} by {element.authorName}</p>
 								</div>
 							)
 						}

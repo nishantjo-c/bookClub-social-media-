@@ -30,14 +30,6 @@ const PopBookUp = ({isOpen, onClick, coverVal, bookTitle, authorName}) => {
 	    })
 	    const data = await response.json();
 	    console.log(data);
-		/*
-	    switch(data.status){
-	    	case 1: console.log(`${id} is reading and rated it ${data.rating} stars.`)
-	    			break;
-	    	case 2: console.log(`${id} had read and rated it ${data.rating} stars.`)
-	    			break;
-	    	case 3: console.log(`${id} wants to read and rated it ${data.rating} stars.`)
-	    }*/
 
 	  }
 

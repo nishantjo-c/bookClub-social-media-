@@ -53,7 +53,9 @@ export const userFindAll = async function (){
 /*------------------*/
 /*	ADDING	POST FOR THE USER	*/
 export const createPost = async function (data){
-	const post = await posts.create(data);
+	const userName = await findUserName(data.id)
+	// console.log(userName[0].name)
+	const post = await posts.create({...data, postBy:userName[0].name});
 	// console.log('56',post)
 }
 
