@@ -124,7 +124,7 @@ app.get('/:id', async (req,res) => {
 		// console.log(val)
 		const name = await findUserName(val)
 		// console.log('line 124 index', name[0].name)
-	res.send({name:name[0].name});
+	res.send({name:name[0].name, date:name[0].date});
 })
 
 /*	SERVER IS LISTENING AT PORT 6000	*/

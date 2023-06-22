@@ -13,8 +13,8 @@ function ImageAvatars() {
       
       <Avatar
         alt="N"
-        src={profileImg}
-        sx={{ width: 250, height: 250 }}
+        // src={profileImg}
+        sx={{ width: 200, height: 200 }}
       />
     </Stack>
   );
@@ -24,6 +24,7 @@ function ImageAvatars() {
 
 function Profile(){
 	const [name, setName] = useState('name');
+	const [joined, setJoined] = useState('yyyy-mm-dd');
 
 		async function fetchData(){
 			try{
@@ -32,7 +33,8 @@ function Profile(){
 				const data = await response.json();
 				console.log(data)
 
-				setName(data.name)
+				setName(data.name);
+				setJoined(data.date.slice(0, data.date.indexOf('T')));
 
 			}
 			catch(error){
@@ -50,7 +52,7 @@ function Profile(){
 			<div className={profileCSS.innerMain}>
 				
 				<h1>{name}</h1>
-				<p>Joined in</p>
+				<p>Joined in: {joined}</p>
 				<h3>Birth day:</h3>
 				<p>month date, year</p>
 			</div>

@@ -65,7 +65,7 @@ function Register(){
 				</form>
 				<div className={registerCSS.footerForm}>
 					<p>already a user?</p>
-					<Link className={registerCSS.link} to='/login'>signup</Link>
+					<Link className={registerCSS.link} to='/login'>signin</Link>
 				</div>
 			</div>
 		</div>

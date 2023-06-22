@@ -85,7 +85,7 @@ const Post = () => {
 			async function fetchData(){
 				const response = await fetch('http://localhost:4000/home');
 				const data = await response.json();
-				setallPost(data);
+				setallPost(data.reverse());
 				
 				// console.log(data)
 				/*jaan booch k lagaya gya timeout cool lagne k liye*/
@@ -116,7 +116,7 @@ return (
 							<div className={postCSS.post} key={key}>
 								<div className={postCSS.imageAndName}>
 									<ImageAvatars />
-									<h3>{element.postBy}</h3>
+									<h2>{element.postBy}</h2>
 								</div>
 								<p>{element.post}</p>
 								<div className={postCSS.likeandcomment}>
@@ -137,9 +137,9 @@ return (
 								<div className={postCSS.post} key={key}>
 									<div className={postCSS.imageAndName}>
 										<ImageAvatars />
-										<h3>{element.postBy}</h3>
+										<h2>{element.postBy}</h2>
 									</div>
-									<p>is reading {element.bookTitle} by {element.authorName}</p>
+									<p>is reading <b>{element.bookTitle}</b> by <i>{element.authorName}</i></p>
 								</div>
 							)
 						}
@@ -148,9 +148,9 @@ return (
 								<div className={postCSS.post} key={key}>
 									<div className={postCSS.imageAndName}>
 										<ImageAvatars />
-										<h3>{element.postBy}</h3>
+										<h2>{element.postBy}</h2>
 									</div>
-									<p>has read {element.bookTitle} by {element.authorName}</p>
+									<p>has read <b>{element.bookTitle}</b> by <i>{element.authorName}</i></p>
 									<br/>
 									<p><b>Rated it: </b>{element.rating} stars</p>
 								</div>
@@ -161,9 +161,9 @@ return (
 								<div className={postCSS.post} key={key}>
 									<div className={postCSS.imageAndName}>
 										<ImageAvatars />
-										<h3>{element.postBy}</h3>
+										<h2>{element.postBy}</h2>
 									</div>
-									<p>wants to read {element.bookTitle} by {element.authorName}</p>
+									<p>wants to read <b>{element.bookTitle}</b> by <i>{element.authorName}</i></p>
 								</div>
 							)
 						}

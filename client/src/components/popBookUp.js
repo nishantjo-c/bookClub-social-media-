@@ -51,7 +51,7 @@ return (
 				<p className={popBookUpCSS.authPop}>by {authorName}</p>
 				<SelectSmall status={status} setStatus={setStatus} />
 				<BasicRating value={value} setValue={setValue} />
-			<button type='submit' onClick={handleClick}>post</button>
+			<button type='submit' onClick={handleClick} className={popBookUpCSS.submit}>post</button>
 			</div>
 
 		<div className={popBookUpCSS.popUp}>

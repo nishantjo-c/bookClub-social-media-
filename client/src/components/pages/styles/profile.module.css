@@ -1,7 +1,13 @@
 .main{
-	border: 2px solid black;
-	height: 92vh;
+	/* border: 2px solid black; */
+	height: 94.25vh;
 	display: flex;
+	/* padding: 100px; */
 	justify-content: center;
 	align-items: center;
+	/* margin: 20%; */
+}
+
+.innerMain{
+	margin: 3%;
 }

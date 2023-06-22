@@ -41,3 +41,11 @@
 .authPop{
 	font-size: 50px;
 }
+
+.submit{
+	width: 3vw;
+	padding: 7px;
+	border-radius: 8px;
+	border: 2px solid gray;
+	box-shadow: 2px 2px black;
+}
