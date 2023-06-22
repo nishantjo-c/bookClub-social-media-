@@ -31,36 +31,42 @@ function Register(){
 	}
 
 	return (
-		<div className={registerCSS.container}>
-		<h2>Register</h2>
-			<form onSubmit={register} className={registerCSS.form}>
-				<input
-					type="text"
-					placeholder="name"
-					value={name}
-					onChange={(e) => setName(e.target.value)}
-				/>
-				<br/>
-				<input
-					type="email"
-					placeholder="email"
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-				/>
-				<br/>
-				<input
-					type="password"
-					placeholder="password"
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-				/>
-				<input
-					type='submit'
-					value='register'/>
-			</form>
-			<div className={registerCSS.footerForm}>
-				<p>already a user?</p>
-				<Link className={registerCSS.link} to='/login'>signup</Link>
+		<div className={registerCSS.body}>
+			<div className={registerCSS.container}>
+			<h2 className={registerCSS.h2}>Register</h2>
+				<form onSubmit={register} className={registerCSS.form}>
+					<input
+						className={registerCSS.credContainer}
+						type="text"
+						placeholder="name"
+						value={name}
+						onChange={(e) => setName(e.target.value)}
+					/>
+					<br/>
+					<input
+						className={registerCSS.credContainer}
+						type="email"
+						placeholder="email"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+					/>
+					<br/>
+					<input
+						className={registerCSS.credContainer}
+						type="password"
+						placeholder="password"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+					/>
+					<input
+						id={registerCSS.button}
+						type='submit'
+						value='register'/>
+				</form>
+				<div className={registerCSS.footerForm}>
+					<p>already a user?</p>
+					<Link className={registerCSS.link} to='/login'>signup</Link>
+				</div>
 			</div>
 		</div>
 	);

@@ -12,20 +12,20 @@ function Books(){
 
 	const [books, setBooks] = useState([]);
 
-	useEffect(()=> {
-		const data = async () => {
-			try{
-				const response = await fetch('https://www.googleapis.com/books/v1/volumes?q=fiction&maxResults=15&orderBy=relevance&key=AIzaSyBEh3Q15OahloFe2eb-K1wO5pvqUHBVecA');
-				const data = await response.json();
-				console.log(data)
-				// setBooks(data.items);
-			}
-			catch(error){
-				console.log(error);
-			}
-		}
-		data();
-	}, [])
+	// useEffect(()=> {
+	// 	const data = async () => {
+	// 		try{
+	// 			const response = await fetch('https://www.googleapis.com/books/v1/volumes?q=fiction&maxResults=15&orderBy=relevance&key=AIzaSyCj5h3EEogCMJdboascLsGo8ZsPcczwqnc');
+	// 			const data = await response.json();
+	// 			console.log(data)
+	// 			setBooks(data.items);
+	// 		}
+	// 		catch(error){
+	// 			console.log(error);
+	// 		}
+	// 	}
+	// 	data();
+	// }, [])
 
 
 	return (

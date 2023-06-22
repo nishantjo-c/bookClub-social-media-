@@ -32,15 +32,18 @@ nav input{
 }
 
 .searchSuggestion{
+    /* border: 2px solid red; */
     display: flex;
     width: 300px;
     margin-left: 10px;
     position: absolute;
+    background-color: #AAC8A7;
+    /* height: 20px; */
     
 }
 
 .searchSuggestion:hover{
-    background-color: #AAC8A7;
+    background-color: white;
 
 }
 
@@ -51,7 +54,7 @@ nav input{
 }
 
 .authNav{
-    color: white;
+    color: black;
     font-size: 12px;
     overflow: hidden;
 }
@@ -88,6 +91,7 @@ nav input{
 /*profile dropdown*/
 
 .dropdownContent{
+
   display: none;
   flex-direction: column;
   position: absolute;

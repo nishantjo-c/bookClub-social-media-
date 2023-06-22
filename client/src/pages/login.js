@@ -49,29 +49,34 @@ function Login(){
 	}
 	
 	return (
-		<div className={loginCSS.container}>
-		<h2>Login</h2>
-			<form onSubmit={login} className={loginCSS.form}>
-				<input
-					type="email"
-					placeholder="email"
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-				/>
-				<br/>
-				<input
-					type="password"
-					placeholder="password"
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-				/>
-				<input
-					type='submit'
-					value='login'/>
-			</form>
-			<div className={loginCSS.footerForm}>
-				<p>not a user?</p>
-				<Link className={loginCSS.link} to='/register'>register</Link>
+		<div className={loginCSS.body}>
+			<div className={loginCSS.container}>
+			<h2 className={loginCSS.h2}>Login</h2>
+				<form onSubmit={login} className={loginCSS.form}>
+					<input
+						className={loginCSS.credContainer}
+						type="email"
+						placeholder="email"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+					/>
+					<br/>
+					<input
+						className={loginCSS.credContainer}
+						type="password"
+						placeholder="password"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+					/>
+					<input
+						id={loginCSS.button}
+						type='submit'
+						value='login'/>
+				</form>
+				<div className={loginCSS.footerForm}>
+					<p>not a user?</p>
+					<Link className={loginCSS.link} to='/register'>register</Link>
+				</div>
 			</div>
 		</div>
 	);
