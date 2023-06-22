@@ -33,7 +33,7 @@ function Register(){
 	return (
 		<div className={registerCSS.body}>
 			<div className={registerCSS.container}>
-			<h2 className={registerCSS.h2}>Register</h2>
+			<h1 className={registerCSS.h1}>Register</h1>
 				<form onSubmit={register} className={registerCSS.form}>
 					<input
 						className={registerCSS.credContainer}
@@ -61,7 +61,7 @@ function Register(){
 					<input
 						id={registerCSS.button}
 						type='submit'
-						value='register'/>
+						value='Register'/>
 				</form>
 				<div className={registerCSS.footerForm}>
 					<p>already a user?</p>

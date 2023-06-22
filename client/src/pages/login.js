@@ -51,7 +51,7 @@ function Login(){
 	return (
 		<div className={loginCSS.body}>
 			<div className={loginCSS.container}>
-			<h2 className={loginCSS.h2}>Login</h2>
+			<h1 className={loginCSS.h1}>Login</h1>
 				<form onSubmit={login} className={loginCSS.form}>
 					<input
 						className={loginCSS.credContainer}
@@ -71,7 +71,7 @@ function Login(){
 					<input
 						id={loginCSS.button}
 						type='submit'
-						value='login'/>
+						value='Login'/>
 				</form>
 				<div className={loginCSS.footerForm}>
 					<p>not a user?</p>

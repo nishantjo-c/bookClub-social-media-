@@ -17,13 +17,17 @@
 	border: 1px solid black;
 	width: 300px;
 	border-radius: 15px;
+	margin-bottom: 10px;
 	padding: 10px;
 	resize: none;
+	
 }
 
 #button{
 	padding: 7px;
 	border-radius: 8px;
+	border: 2px solid gray;
+	box-shadow: 2px 2px black;
 }
 
 .updates{
@@ -39,8 +43,8 @@
 	border: 2px solid black;
 	min-height: 60px;
 	padding: 10px;
-	/* border-radius: 20px; */
-	/* margin: 5px; */
+	border-radius: 20px;
+	margin-bottom: 10px;
 }
 
 .likeandcomment{

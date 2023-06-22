@@ -67,11 +67,11 @@ function Navbar( {search, setSearch, coverVal, bookTitle, authorName, onClick,
 
                 <Link className={navbarCSS.h1} to='/home'>
                     <h1>BookClub</h1>
-                    <img src="./static/profile.gif" alt="logo" id={navbarCSS.img}/>
+                    {/* <img src="./static/profile.png" alt="logo" id={navbarCSS.img}/> */}
                 </Link>
 
-                <Link className={navbarCSS.navlink} to='/books'>books</Link>
-                <Link className={navbarCSS.navlink} to='/discussion'>discussion</Link>
+                <Link className={navbarCSS.navlink} to='/books'>Books</Link>
+                <Link className={navbarCSS.navlink} to='/discussion'>Discussion</Link>
                 <Navsearch className={navbarCSS.navlink}
                     search={search}
                     setSearch={setSearch}
@@ -82,7 +82,7 @@ function Navbar( {search, setSearch, coverVal, bookTitle, authorName, onClick,
                 />
                 <div className={navbarCSS.navlink} to='/profile' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
 
-                    personal
+                    Personal
                    {<div className={`${navbarCSS['dropdownContent']} ${isHovered ? navbarCSS.visible : ''}`} >
                         <div className={navbarCSS.h4}>
                             <Link to='/profile' className={navbarCSS.navlink}>

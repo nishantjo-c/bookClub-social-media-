@@ -21,7 +21,7 @@
 	box-shadow: 10px 10px gray;
 }
 
-.h2{
+.h1{
 	padding: 40px;
 }
 
@@ -29,17 +29,20 @@
 	/* border: solid 2px black; */
 	border-radius: 40px;
 	height: 50px;
-	width: 300px;
+	width: 18vw;
 	margin: 10px;
 	text-align: center;
 	/* background-color: rgb(231, 226, 226); */
+	font-size: large;
 }
 
 #button{
 	height: 30px;
-	width: 200px;
+	width: 9vw;
 	margin: 30px;
-	border-radius: 10px;
+	border-radius: 30px;
+	box-shadow: 5px 5px gray;
+	font-size: medium;
 	/* border: solid 2px black; */
 }
 
