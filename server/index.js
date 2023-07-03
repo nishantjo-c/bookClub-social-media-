@@ -8,6 +8,8 @@ import {
 		findAllPosts, 
 		findPostById,
 		findUserName,
+		removePosts,
+		removeBook,
 		addBook
 	} from './models/scripts.js';
 
@@ -127,7 +129,22 @@ app.get('/:id', async (req,res) => {
 	res.send({name:name[0].name, date:name[0].date});
 })
 
-/*	SERVER IS LISTENING AT PORT 6000	*/
+
+/*	DELETE POST ROUTE	*/
+app.delete('/:id/:flag', (req, res) => {
+	const {id, flag} = req.params;
+	
+	if(flag == 0){
+		removePosts(id);
+	}
+	else if(flag == 1){
+		removeBook(id);
+	}
+	// res.send({msg:'delete route called', id: id, flag: flag});
+})
+
+
+/*	SERVER IS LISTENING AT PORT 4000	*/
 app.listen(4000, (req,res) => {
 	console.log('running server')
 })

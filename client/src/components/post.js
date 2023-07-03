@@ -2,6 +2,8 @@ import postCSS from '../styles/post.module.css';
 import {useState, useRef, useEffect} from 'react';
 import profileImg from './pages/static/images/profile1.jpeg';
 
+import trash from './static/trash.svg';
+
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
@@ -27,6 +29,8 @@ const Post = () => {
 	const [style, setStyle] = useState('none');
 
 	const id = localStorage.userUniqueId;
+	const [flag, setFlag] = useState(null);
+
 	const [isLoading, setIsLoading] = useState(true);
 
 
@@ -56,6 +60,18 @@ const Post = () => {
 		setStyle('')
 	}
 
+	function deleteFunction(e){
+		setFlag(e);
+		async function toDelete(){
+			const response = await fetch(`http://localhost:4000/${id}/${flag}`, {
+				method:'DELETE',
+			});
+			const data = await response.json();
+			console.log(data);
+		}
+		toDelete();
+	}
+
 	/*	API CALL WHEN SUBMITTING A POST	*/
 	async function submit(){
 		if(post !== ''){
@@ -72,8 +88,6 @@ const Post = () => {
 				})
 			});
 			const data = await response.json();
-
-			// console.log(data)
 			setallPost(data);
 			setPost('');
 			textareaRef.current.value = '';
@@ -87,13 +101,13 @@ const Post = () => {
 				const data = await response.json();
 				setallPost(data.reverse());
 				
-				// console.log(data)
 				/*jaan booch k lagaya gya timeout cool lagne k liye*/
 				setTimeout(() => {setIsLoading(false)},1500)
+				// console.log(data)
 			}
 			fetchData();
 		})
-	
+
 return (
 	<div className={postCSS.mainDiv}>
 		<div className={postCSS.textarea}>
@@ -117,6 +131,7 @@ return (
 								<div className={postCSS.imageAndName}>
 									<ImageAvatars />
 									<h2>{element.postBy}</h2>
+									{element.id === id? <img src={trash} alt='delete' className={postCSS.trash} onClick={() => deleteFunction(element.flag)} /> : null}
 								</div>
 								<p>{element.post}</p>
 								<div className={postCSS.likeandcomment}>
@@ -138,6 +153,7 @@ return (
 									<div className={postCSS.imageAndName}>
 										<ImageAvatars />
 										<h2>{element.postBy}</h2>
+										{element.id === id? <img src={trash} alt='delete' className={postCSS.trash} onClick={() => deleteFunction(element.flag)} /> : null}
 									</div>
 									<p>is reading <b>{element.bookTitle}</b> by <i>{element.authorName}</i></p>
 								</div>
@@ -149,6 +165,7 @@ return (
 									<div className={postCSS.imageAndName}>
 										<ImageAvatars />
 										<h2>{element.postBy}</h2>
+										{element.id === id? <img src={trash} alt='delete' className={postCSS.trash} onClick={() => deleteFunction(element.flag)} /> : null}
 									</div>
 									<p>has read <b>{element.bookTitle}</b> by <i>{element.authorName}</i></p>
 									<br/>
@@ -162,6 +179,7 @@ return (
 									<div className={postCSS.imageAndName}>
 										<ImageAvatars />
 										<h2>{element.postBy}</h2>
+										{element.id === id? <img src={trash} alt='delete' className={postCSS.trash} onClick={() => deleteFunction(element.flag)} /> : null}
 									</div>
 									<p>wants to read <b>{element.bookTitle}</b> by <i>{element.authorName}</i></p>
 								</div>

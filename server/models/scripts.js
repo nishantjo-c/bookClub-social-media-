@@ -66,6 +66,7 @@ export const findAllPosts = async function(){
 	return [...post, ...bookpost];
 }
 
+
 /*	FINDING POST BY ID	*/
 export const findPostById = async function (userId){
 	const post = await posts.find({
@@ -77,12 +78,16 @@ export const findPostById = async function (userId){
 
 // findPostById('646b2ca04efe516b78c02544')
 
-/*	REMOVING POSTS	*/
-export const removePosts = async function(){
-	const post = await posts.deleteMany();
-	console.log('all posts removed')
+/*	REMOVING POSTS REMOVING BOOK POST	*/
+export const removePosts = async function(deleteId){
+	const post = await posts.deleteOne({id:deleteId});
+	console.log('post removed');
 }
-// removePosts()
+export const removeBook = async function(deleteId){
+	const remove = await bookStatus.deleteOne({id:deleteId});
+	console.log('book removed');
+}
+
 
 
 /*		BOOK POST		*/
@@ -105,15 +110,9 @@ export const addBook = async function(statusAndRating){
 /*	 FINDING ALL BOOKS  	*/
 export const findBookPost = async function(){
 	const findBooks = await bookStatus.find();
+	// console.log(findBooks);
 	return findBooks;
 }
-// findBookPost();
-
-/*	 REMOVING BOOK POSTS 	*/
-export const removeBook = async function(){
-	const remove = await bookStatus.deleteMany();
-}
-// removeBook()
 
 
 
@@ -127,3 +126,14 @@ export const findUserName = async function(userId){
 }
 
 // findUserName('646b2ca04efe516b78c02544')
+
+
+
+// ================================================xx DANGER xx================================================
+
+
+/*	 REMOVING ALL BOOKS 	*/
+// export const removeBook = async function(){
+// 	const remove = await bookStatus.deleteMany();
+// }
+// removeBook()

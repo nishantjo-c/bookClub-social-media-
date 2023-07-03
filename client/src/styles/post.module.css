@@ -60,10 +60,17 @@
 
 }
 
+
 .imageAndName{
 	display: flex;
 	column-gap: 10px;
 }
+
+.trash {
+	width: 1rem;
+	margin-left: auto;
+}
+
 
 /*
 #comments{

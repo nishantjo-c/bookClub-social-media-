@@ -63,16 +63,16 @@ function Navbar( {search, setSearch, coverVal, bookTitle, authorName, onClick,
     return (
 
         <nav>
-            <div className={navbarCSS.NavLinks}>
+            <div className={`${navbarCSS.NavLinks} ${navbarCSS.clearfix}`}>
 
-                <Link className={navbarCSS.h1} to='/home'>
-                    <h1>BookClub</h1>
+                <Link to='/home'>
+                    <h1 className={navbarCSS.h1}>BookClub</h1>
                     {/* <img src="./static/profile.png" alt="logo" id={navbarCSS.img}/> */}
                 </Link>
 
                 <Link className={navbarCSS.navlink} to='/books'>Books</Link>
                 <Link className={navbarCSS.navlink} to='/discussion'>Discussion</Link>
-                <Navsearch className={navbarCSS.navlink}
+                <Navsearch className={navbarCSS.searchBar}
                     search={search}
                     setSearch={setSearch}
                     coverVal={coverVal}
