@@ -1,118 +1,48 @@
-*{
-    padding: 0;
-    margin: 0;
-    border: 0;
+.nav_container{
+    margin-left: 25%;
+    margin-right: 30%;
 }
 
-.NavLinks{
-    display: flex;
-    text-align: center;
-    color: #AAC8A7;
+.img{
+    width: 1.75rem;
+    margin-right: .1rem;
 }
 
-.navlink{
+.img_navigation{
+    margin-right: .25rem;
+    margin-bottom: -.27rem;
+}
+
+.link{
     text-decoration: none;
-    background: #C9DBB2;
-    padding: 10px;
-    color: black;
-    flex-grow: 1;
-    display: block;
-    position: relative;
-    font-weight: bold;
 }
 
-nav input{
-    margin: 10px;
-    margin-bottom: 2px;
-    width: 300px;
-    height: 25px;
+.title{
+    font-size: 2rem;
+    margin-bottom: 3rem;
 }
 
-.navlink:hover{
-    background-color: #AAC8A7;
+.nav_items{
+    display: inline-block;
+    padding: .75rem;
+    font-size: 1.5rem;
 }
+/* .searchBar{
+    font-size: 1.5rem;
+} */
 
-.searchSuggestion{
-    display: flex;
-    width: 300px;
-    margin-left: 10px;
-    position: absolute;
-    background-color: #AAC8A7;
-    
-}
-
-.searchSuggestion:hover{
-    background-color: white;
-
-}
-
-.titleNav{
-    color: black;
-    font-size: 15px;
-    overflow: hidden;
-}
-
-.authNav{
-    color: black;
-    font-size: 12px;
-    overflow: hidden;
-}
-
-.imageNav{
-    height: 30px;
-}
-
-.h1{
-    text-decoration: none;
-    color: black;
-    padding: 5px;
-
-    padding-right: 50px;
-    background: #C9DBB2;
-
-    display: flex;
-}
-
-#img{
-    width: 10px;
-    height: auto;
+.nav_items:hover{
+    background-color: aquamarine;
+    border-radius: 2rem;
 }
 
 .searchBar{
-        border-radius: 8px;
-        margin: 8px;
+    margin: .5rem 0;
+    width: 11rem;
+    border-radius: 1rem;
+    margin-left: .65rem;
 }
 
-.navSearch{
-    background: #C9DBB2;
+.nav_items:not(:last-child){
+    margin-bottom: .75rem;
 }
-
-
-
-.dropdownContent{
-
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  margin-top: 10px;
-  margin-left: -10px;
-}
-
-
-.visible {
-  display: block;
-}
-
-
-.h4{
-    width: 100%;
-}
-
-
-

@@ -1,9 +1,13 @@
 .mainDiv{
-	/* border: 2px solid black; */
+	border: 1px solid grey;
 	display: flex;
-	justify-content: center;
+	/* justify-content: center; */
 	align-items: center;
 	flex-direction: column;
+	height: 95vh;
+	width: 40%;
+	margin-left: 30%;
+
 }
 
 .textarea{
@@ -14,9 +18,9 @@
 }
 
 #textarea {
-	border: 1px solid black;
+	border-bottom: 1px solid grey;
 	width: 300px;
-	border-radius: 15px;
+	/* border-radius: 15px; */
 	margin-bottom: 10px;
 	padding: 10px;
 	resize: none;
@@ -24,8 +28,8 @@
 }
 
 #button{
-	padding: 7px;
-	border-radius: 8px;
+	padding: 10px;
+	border-radius: 20px;
 	border: 2px solid gray;
 	box-shadow: 2px 2px black;
 }
@@ -40,25 +44,23 @@
 .post{
 	display: flex;
 	flex-direction: column;
-	border: 2px solid black;
-	min-height: 60px;
+	border: .5px solid grey;
+	max-height: 10rem;
 	padding: 10px;
-	border-radius: 20px;
-	margin-bottom: 10px;
+	/* border-radius: 20px; */
+	/* margin-bottom: 10px; */
+}
+.post:hover{
+	background-color: rgba(128, 128, 128, 0.08);
 }
 
 .likeandcomment{
-	display: flex;
-	justify-content: flex-end;
-	
+	/* display: flex; */
+	/* justify-content: flex-end; */
+	/* background-color: aqua; */
+	/* margin-left: auto; */
 }
 
-.like{
-
-}
-.comment{
-
-}
 
 
 .imageAndName{
@@ -66,11 +68,23 @@
 	column-gap: 10px;
 }
 
-.trash {
+.trash, .like, .comment {
 	width: 1rem;
+	height: 1rem;
+	padding: .25rem;
 	margin-left: auto;
+	float: right;
+}
+.trash:hover, .like:hover, .comment:hover{
+	background-color: rgba(128, 128, 128, 0.5);
+	border-radius: 1.5rem;
 }
 
+.likeCount{
+	/* display: inline; */
+	float: right;
+	font-size: 14px;
+}
 
 /*
 #comments{

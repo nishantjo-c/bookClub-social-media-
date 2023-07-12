@@ -1,0 +1,141 @@
+// #000046 #1CB5E0
+$color-blue-dark: #000046;
+$color-blue-light: #1CB5E0; 
+
+$color-white: #eee;
+
+.container {
+
+    width: 100vw;
+    height: 100vh;
+    
+    &::after{
+        content: '';
+        display: table;
+        clear: both;
+    }
+    
+    background-image: linear-gradient(to right, $color-blue-dark, $color-blue-light);
+
+    .col_1_of_2{
+        float: left;
+        // background-color: orangered;
+        width: calc((100% - 5rem) / 2);
+        height: 100vh;
+        
+    }    
+
+    .col_1_of_2:not(:last-child){
+        margin-right: 5rem;       
+    }
+
+    .col_1_of_2{
+        position: relative;
+    }
+
+    &__title{
+        font-size: 4rem;
+        font-weight: 500;
+        letter-spacing: .25rem;
+        text-transform: uppercase;
+        position: absolute;
+        top: 20%;
+        left: 0;
+        text-align: center;
+        color: $color-white;
+    }   
+    
+    &__register{
+        position: absolute;
+        text-align: center;
+        top: 15%;
+        
+    }
+
+    &__form{
+        width: 55%;
+        height: 50%;
+        padding-top: 3.5rem;
+        padding-bottom: 4.5rem;
+        text-align: center;
+        background-image: linear-gradient(to right bottom, rgba($color-blue-light, .5), rgba($color-blue-dark, .5));
+        
+        border: 1px solid #eee;
+        border-radius: 45px;
+        box-shadow: 0 2rem 4rem rgba(#000000, .5);
+    }
+
+    &__h1{
+        font-size: 2.75rem;
+        color: $color-white;
+        margin: 0;
+        padding-bottom: 1rem;
+    }
+
+    &__cred{
+        // display: block;
+        margin: .75rem;
+        padding: .75rem;
+        width: 55%;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: all .3s;
+
+        &:focus{
+            outline: none;
+        }
+
+        &:focus:invalid{
+            border-bottom: 5px solid orangered;
+        }
+        
+    }
+
+    &__button{
+        display:block;
+        margin: 4% 26%;
+        text-align: center;
+        padding: .75rem 1.25rem;
+        border-radius: 25px;
+        width: 50%;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        background-image: linear-gradient(120deg, $color-blue-light 0%, 
+                rgba($color-blue-dark, .80) 25%, 
+                $color-white 50%, 
+                rgba($color-blue-dark, .80) 75%, 
+                $color-blue-light);
+
+        background-size: 220%;
+        transition: all .8s;
+        color: $color-blue-dark;
+
+        &:hover{
+            background-position: 100%;
+            color: $color-white;
+        }
+    }
+
+    &__text{
+        font-size: 1rem;
+        margin: 0;
+        color: $color-white;
+    }
+
+    .footerForm{
+        margin: .5rem;
+    }
+
+    .link{
+        &:link,
+        &:visited{
+            text-decoration: none;
+            font-size: 1rem;
+            color: $color-white;
+        }
+
+
+    }
+}
+

@@ -1,4 +1,4 @@
-import loginCSS from './styles/login.module.css';
+import loginCSS from './styles/login.module.scss';
 import { Link,useHistory } from 'react-router-dom'
 import {useState} from 'react';
 
@@ -49,36 +49,46 @@ function Login(){
 	}
 	
 	return (
-		<div className={loginCSS.body}>
+		<>
+
+			
 			<div className={loginCSS.container}>
-			<h1 className={loginCSS.h1}>Login</h1>
-				<form onSubmit={login} className={loginCSS.form}>
-					<input
-						className={loginCSS.credContainer}
-						type="email"
-						placeholder="email"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-					/>
-					<br/>
-					<input
-						className={loginCSS.credContainer}
-						type="password"
-						placeholder="password"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-					/>
-					<input
-						id={loginCSS.button}
-						type='submit'
-						value='Login'/>
-				</form>
-				<div className={loginCSS.footerForm}>
-					<p>not a user?</p>
-					<Link className={loginCSS.link} to='/register'>register</Link>
+				<div className={`${loginCSS.col_1_of_2} ${loginCSS.container__title}`}>bookClub</div>
+				<div className={`${loginCSS.col_1_of_2} ${loginCSS.container__login}`}>
+					
+					<form onSubmit={login} className={loginCSS.container__form}>
+						<h1 className={loginCSS.container__h1}>Login</h1>
+						<input
+							className={loginCSS.container__cred}
+							type="email"
+							placeholder="email"
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+						/>
+						<br/>
+						<input
+							className={loginCSS.container__cred}
+							type="password"
+							placeholder="password"
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+						/>
+						
+						<div className={loginCSS.footerForm}>
+							<p className={loginCSS.container__text}>not a user?</p>
+							<Link className={loginCSS.link} to='/register'>register</Link>
+
+							<input
+								className={loginCSS.container__button}
+								type='submit'
+								value='Login'
+							/>
+						</div>
+					</form>
+					
 				</div>
 			</div>
-		</div>
+		</>
 	);
 }
 

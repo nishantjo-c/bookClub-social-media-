@@ -1,0 +1,30 @@
+/* .navContainer{
+    width: 30vw;
+    height: 99vh;
+    background-color: aquamarine;
+ 
+
+}
+.postContainer{
+    background-color: blanchedalmond;
+    
+} */
+
+.row{
+    /* background-color: aqua; */
+    height: 100vh;
+}
+.row::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.col_1_of_3{
+    background-color: white;
+    float: left;
+    width: calc((100% - (2rem)*2) / 3 );
+}
+.col_1_of_3:not(:last-child){
+    margin-right: 2rem;
+}

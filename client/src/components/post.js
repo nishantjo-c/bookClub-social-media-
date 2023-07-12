@@ -2,12 +2,13 @@ import postCSS from '../styles/post.module.css';
 import {useState, useRef, useEffect} from 'react';
 import profileImg from './pages/static/images/profile1.jpeg';
 
-import trash from './static/trash.svg';
-
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 
+import likeImg from './static/like.svg';
+import commentImg from './static/comment.svg';
+import trash from './static/trash.svg';
 
 function ImageAvatars() {
   return (
@@ -135,9 +136,11 @@ return (
 								</div>
 								<p>{element.post}</p>
 								<div className={postCSS.likeandcomment}>
-									<p>{like}</p>
-									<button className={postCSS.like} onClick={handleClick}>like</button>
-									<button className={postCSS.comment} onClick={handleCommentButton}>comment</button>
+									
+									<img src={commentImg} className={postCSS.comment} onClick={handleCommentButton} />
+									<img src={likeImg} className={postCSS.like} onClick={handleClick} />
+									<p className={postCSS.likeCount}>{like}</p>
+									
 								</div>
 								<textarea 
 									id={postCSS.comments} 

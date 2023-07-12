@@ -3,6 +3,14 @@ import { useEffect,useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useDebounce from '../hooks/useDebounce.js'
 
+import bookIcon from './static/books_1.svg';
+import homeIcon from './static/home.svg';
+import searchIcon from './static/search.svg';
+import notificationIcon from './static/notification.svg';
+import bookIcon2 from './static/books_2.svg';
+import discussionIcon from './static/discussion.svg';
+import profileIcon from './static/profile.svg';
+
 import navbarCSS from '../styles/navbar.module.css';
 
 function Navbar( {search, setSearch, coverVal, bookTitle, authorName, onClick,
@@ -12,7 +20,6 @@ function Navbar( {search, setSearch, coverVal, bookTitle, authorName, onClick,
     setAuthorName
 } ){
 
-    const [isHovered, setIsHovered] = useState(false);
 
     const history = useHistory();
     const location = useLocation();
@@ -43,61 +50,72 @@ function Navbar( {search, setSearch, coverVal, bookTitle, authorName, onClick,
         }
     }, [location])
 
-    /*const handleClick = (e) => {
-  
-        if(e.target.textContent === 'signout'){
-            console.log(e.target.textContent)
-            // history.push('/')
-        }
-       }*/
-
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-
-    }
-
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-     }
 
     return (
 
         <nav>
-            <div className={`${navbarCSS.NavLinks} ${navbarCSS.clearfix}`}>
+            <div className={`${navbarCSS.nav_container} ${navbarCSS.clearfix}`}>
 
-                <Link to='/home'>
-                    <h1 className={navbarCSS.h1}>BookClub</h1>
-                    {/* <img src="./static/profile.png" alt="logo" id={navbarCSS.img}/> */}
-                </Link>
+                <h1 className={`${navbarCSS.title}`}>
+                    <Link to='/home' className={navbarCSS.link}>
+                    <img src={bookIcon} alt="logo" className={navbarCSS.img}/>
+                    BookClub
+                    </Link>
+                </h1>
+                    
+                <h2 className={`${navbarCSS.nav_items}`}>
+                    <Link to='/home' className={navbarCSS.link}>
+                    <img src={homeIcon} alt="logo" className={`${navbarCSS.img} ${navbarCSS.img_navigation}`} />
+                    Home
+                    </Link>
+                </h2>
 
-                <Link className={navbarCSS.navlink} to='/books'>Books</Link>
-                <Link className={navbarCSS.navlink} to='/discussion'>Discussion</Link>
-                <Navsearch className={navbarCSS.searchBar}
+                <h2 className={`${navbarCSS.nav_items}`}>
+                    <Link to='#' className={navbarCSS.link}>
+                    <img src={searchIcon} alt="logo" className={`${navbarCSS.img} ${navbarCSS.img_navigation}`} />
+                    Explore
+                    </Link>
+                </h2>
+
+                {/* <Navsearch className={navbarCSS.searchBar}
                     search={search}
                     setSearch={setSearch}
                     coverVal={coverVal}
                     bookTitle={bookTitle}
                     authorName={authorName}
                     onClick={onClick}
-                />
-                <div className={navbarCSS.navlink} to='/profile' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                /> */}
 
-                    Personal
-                   {<div className={`${navbarCSS['dropdownContent']} ${isHovered ? navbarCSS.visible : ''}`} >
-                        <div className={navbarCSS.h4}>
-                            <Link to='/profile' className={navbarCSS.navlink}>
-                                <h3>profile</h3>
-                            </Link>
-                        </div>
-                        <div className={navbarCSS.h4}>
-                            <Link to='/' className={navbarCSS.navlink} onClick={() => {
-                                localStorage.removeItem('userUniqueId');
-                            }}>
-                                <h3>signout</h3>
-                            </Link>
-                        </div>
-                    </div>}
-                </div>
+                <h2 className={`${navbarCSS.nav_items}`}>
+                    <img src={notificationIcon} alt="logo" className={`${navbarCSS.img} ${navbarCSS.img_navigation}`} />
+                    <Link to='#' className={navbarCSS.link}>
+                    Notifications
+                    </Link>
+                </h2>
+
+                <h2 className={`${navbarCSS.nav_items}`}>
+                    <Link className={navbarCSS.link} to='/books'>
+                    <img src={bookIcon2} alt="logo" className={`${navbarCSS.img} ${navbarCSS.img_navigation}`} />    
+                    Books</Link>
+                </h2>
+                    
+                <h2 className={`${navbarCSS.nav_items}`}>
+                    <Link className={navbarCSS.link} to='/discussion'>
+                    <img src={discussionIcon} alt="logo" className={`${navbarCSS.img} ${navbarCSS.img_navigation}`} />    
+                    Discussion</Link>
+                </h2>
+
+                <h2 className={`${navbarCSS.nav_items}`}>
+                    <Link to='/profile' className={navbarCSS.link}>
+                    <img src={profileIcon} alt="logo" className={`${navbarCSS.img} ${navbarCSS.img_navigation}`} />
+                    profile</Link>
+                </h2>
+
+                <h2 className={`${navbarCSS.nav_items}`}>
+                        <Link to='/' className={navbarCSS.link} onClick={() => {
+                        localStorage.removeItem('userUniqueId');
+                    }}>signout</Link>
+                </h2>
             </div>
         </nav>
 

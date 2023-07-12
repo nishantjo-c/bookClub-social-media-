@@ -1,4 +1,4 @@
-import registerCSS from './styles/register.module.css';
+import registerCSS from './styles/register.module.scss';
 import { Link, useHistory } from 'react-router-dom'
 import {useState} from 'react';
 
@@ -31,12 +31,15 @@ function Register(){
 	}
 
 	return (
-		<div className={registerCSS.body}>
+		<>
 			<div className={registerCSS.container}>
-			<h1 className={registerCSS.h1}>Register</h1>
-				<form onSubmit={register} className={registerCSS.form}>
+			<div className={`${registerCSS.col_1_of_2} ${registerCSS.container__title}`}>bookClub</div>
+			<div className={`${registerCSS.col_1_of_2} ${registerCSS.container__register}`}>
+
+				<form onSubmit={register} className={registerCSS.container__form}>
+					<h1 className={registerCSS.container__h1}>Register</h1>
 					<input
-						className={registerCSS.credContainer}
+						className={registerCSS.container__cred}
 						type="text"
 						placeholder="name"
 						value={name}
@@ -44,7 +47,7 @@ function Register(){
 					/>
 					<br/>
 					<input
-						className={registerCSS.credContainer}
+						className={registerCSS.container__cred}
 						type="email"
 						placeholder="email"
 						value={email}
@@ -52,23 +55,24 @@ function Register(){
 					/>
 					<br/>
 					<input
-						className={registerCSS.credContainer}
+						className={registerCSS.container__cred}
 						type="password"
 						placeholder="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 					/>
-					<input
-						id={registerCSS.button}
-						type='submit'
-						value='Register'/>
+					<div className={registerCSS.footerForm}>
+						<p className={registerCSS.container__text}>already a user?</p>
+						<Link className={registerCSS.link} to='/login'>signin</Link>
+						<input
+							className={registerCSS.container__button}
+							type='submit'
+							value='Register'/>
+					</div>
 				</form>
-				<div className={registerCSS.footerForm}>
-					<p>already a user?</p>
-					<Link className={registerCSS.link} to='/login'>signin</Link>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 }
 
