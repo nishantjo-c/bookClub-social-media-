@@ -1,4 +1,4 @@
-import postCSS from '../styles/post.module.css';
+import postCSS from '../styles/post.module.scss';
 import {useState, useRef, useEffect} from 'react';
 import profileImg from './pages/static/images/profile1.jpeg';
 
@@ -9,6 +9,8 @@ import Stack from '@mui/material/Stack';
 import likeImg from './static/like.svg';
 import commentImg from './static/comment.svg';
 import trash from './static/trash.svg';
+import addImg from './static/addImg.svg';
+import addEmoji from './static/emoji.svg';
 
 function ImageAvatars() {
   return (
@@ -26,6 +28,7 @@ const Post = () => {
 	const textareaRef = useRef(null);
 	const [like, setLike] = useState(0);
 	const [comment, setComment] = useState([]);
+	const [commentCount, setCommentCount] = useState(0);
 
 	const [style, setStyle] = useState('none');
 
@@ -110,43 +113,52 @@ const Post = () => {
 		})
 
 return (
-	<div className={postCSS.mainDiv}>
-		<div className={postCSS.textarea}>
-
-			<textarea placeholder='Add a post:' 
-						id={postCSS.textarea} 
-						rows='2' cols='10' 
-						onChange={handleChange} 
-						ref={textareaRef} 
-					/>
-
-			<button id={postCSS.button} onClick={submit}>post</button>
+	<div className={postCSS.container}>
+		<div className={postCSS.container__addpost}>
+			<div className={postCSS.container__addpost__area}>
+				<ImageAvatars />
+				<textarea placeholder='What is happening?' 
+							id={postCSS.textarea} 
+							className={postCSS.container__post}
+							rows='2' cols='10' 
+							onChange={handleChange} 
+							ref={textareaRef} 
+						/>
+			</div>
+			<div className={postCSS.container__addpost__footer}>
+				<img src={addImg} alt='addImage' className={postCSS.addImg} />
+				<img src={addEmoji} alt='emoji' className={postCSS.addEmoji} />
+				<button id={postCSS.button} className={postCSS.container__button} onClick={submit}>add post</button>
+			</div>
 		</div>
 
-		<div className={postCSS.updates}>
+		<div className={postCSS.container__updates}>
 			{ isLoading ? (<p>Loading wait...</p>) : 
 				(allPost.map((element, key) => {
 					if(element.flag === 0) {
 						return (
 							<div className={postCSS.post} key={key}>
-								<div className={postCSS.imageAndName}>
+								
+								<div className={postCSS.post__header}>
 									<ImageAvatars />
-									<h2>{element.postBy}</h2>
+									<h2 className={postCSS.post__name}>{element.postBy}</h2>
 									{element.id === id? <img src={trash} alt='delete' className={postCSS.trash} onClick={() => deleteFunction(element.flag)} /> : null}
 								</div>
-								<p>{element.post}</p>
-								<div className={postCSS.likeandcomment}>
+
+								<p className={postCSS.postText}>{element.post}</p>
+								<div className={postCSS.post__footer}>
 									
-									<img src={commentImg} className={postCSS.comment} onClick={handleCommentButton} />
 									<img src={likeImg} className={postCSS.like} onClick={handleClick} />
 									<p className={postCSS.likeCount}>{like}</p>
+									<img src={commentImg} className={postCSS.comment} onClick={handleCommentButton} />
+									<p className={postCSS.commentCount}>{commentCount}</p>
 									
-								</div>
-								<textarea 
+									<textarea 
 									id={postCSS.comments} 
 									placeholder='comment...' 
 									onKeyDown={handleComment}
 									style={{display:style}}></textarea>
+								</div>
 							</div>)
 					}
 					else if(element.flag === 1){

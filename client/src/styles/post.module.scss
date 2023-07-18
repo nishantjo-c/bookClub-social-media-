@@ -1,0 +1,116 @@
+.container{
+    // background-color: aquamarine;
+
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    border-top: 1px solid grey;
+    
+	
+    &__addpost{
+
+        
+        content: '';
+        display: table;
+        clear: both;
+
+        width: 100%;
+        border-bottom: 1px solid grey;
+        margin-top: 1rem;
+
+        &__area{
+
+            display: flex;
+            margin-left: 1rem;
+        }
+
+        &__footer{
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: .5rem;
+            // background-color: orangered;
+        }
+    }
+
+    &__post{
+        resize: none;
+        width: 80%;
+        height: 4rem;
+        display: block;
+
+        font-family: inherit;
+        border: none;
+        border-radius: 3%;
+        border-bottom: 1px solid grey;
+        margin-bottom: .5rem;
+        margin-left: 1rem;
+        
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    &__button{
+        float: right;
+        margin-right: 8%;
+        width: 5rem;
+        padding: .75rem;
+        border: none;
+        border-radius: 2rem;
+        background-color: aqua;
+        font-family: inherit;
+        font-weight: 800;
+    }
+
+    &__updates{
+        
+    }
+    .post{
+        // border: 2px solid orangered;
+        border-bottom: 1px solid grey;
+
+        &__header{
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
+            // justify-content: space-between;
+            
+        }
+
+        &__image{
+        }
+        &__name{
+            margin-left: 0.5rem;
+        }
+
+
+        &__footer{
+            // border: 2px solid black;
+            display: flex;
+            justify-content: flex-end;
+
+            
+        }
+
+        .postText{
+            // background-color: orangered;
+            padding: .5rem;
+            margin: 1rem;
+        }
+
+
+        .trash{
+            margin-left: auto;
+            
+        }
+    }
+
+    .trash, .like, .comment, .addImg, .addEmoji{
+        width: 1.25rem;
+        margin-right: .25rem;
+        cursor: pointer;
+    }
+    .likeCount, .commentCount{
+        margin-right: .25rem;
+    }
+}

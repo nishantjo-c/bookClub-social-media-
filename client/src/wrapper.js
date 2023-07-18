@@ -83,8 +83,8 @@ function Wrapper(){
 
 
 				<div className={`${wrapperCSS.postContainer} ${wrapperCSS.col_1_of_3}`}>
-					{/* <Route exact path='/home' component={Post} /> */}
-					<h1>Home</h1>
+				<h1>Home</h1>
+					<Route exact path='/home' component={Post} />
 				</div>
 				
 				<div className={`${wrapperCSS.col_1_of_3}`}>
